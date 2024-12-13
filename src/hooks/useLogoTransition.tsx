@@ -28,10 +28,9 @@ export const useLogoTransition = () => {
           blackOpacity = Math.min(1, progress * 2);
         }
 
-        // Position handling
-        // Start transition when logo is fully visible and end before it hits the top
+        // Position handling without animations
         const transitionStartPoint = missionEnd - viewportHeight * 0.8;
-        const transitionEndPoint = missionEnd - logoHeight - 32; // 32px is the final top position
+        const transitionEndPoint = missionEnd - logoHeight - 32;
         
         if (scrollPosition <= transitionStartPoint) {
           // Keep centered
@@ -46,7 +45,7 @@ export const useLogoTransition = () => {
           logoContainer.style.left = '50%';
           logoContainer.style.transform = 'translate(-50%, 0)';
         } else {
-          // Smooth transition based on scroll position
+          // Direct positioning without animation
           const progress = (scrollPosition - transitionStartPoint) / (transitionEndPoint - transitionStartPoint);
           const startY = viewportHeight / 2;
           const endY = 32;
@@ -63,7 +62,7 @@ export const useLogoTransition = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial position
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
