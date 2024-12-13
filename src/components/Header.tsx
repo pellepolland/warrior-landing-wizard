@@ -26,7 +26,7 @@ export const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
+        {/* Logo - decreased size from h-6 to h-4 */}
         <a 
           href="/" 
           className={`transition-opacity duration-300 ${
@@ -36,14 +36,14 @@ export const Header = () => {
           <img 
             src="/lovable-uploads/c865e138-a44c-4a9e-8650-447e5445df7f.png"
             alt="Warrior Capital"
-            className="h-6 w-auto"
+            className="h-4 w-auto"
           />
         </a>
 
-        {/* Investor Login */}
+        {/* Investor Login - updated font and added underline */}
         <a
           href="/login"
-          className={`transition-colors ${
+          className={`transition-colors font-['Helvetica'] font-light uppercase underline ${
             isScrolled 
               ? 'text-warrior-dark hover:text-warrior-purple' 
               : 'text-white hover:text-warrior-gray'
