@@ -1,7 +1,7 @@
 export const AboutBlock = () => {
   return (
     <section className="min-h-screen flex items-center">
-      <div className="w-full grid md:grid-cols-2 gap-12">
+      <div className="w-full grid md:grid-cols-2 gap-24">
         {/* Text content */}
         <div className="flex flex-col justify-center animate-fade-up px-4 sm:px-6 lg:px-8 xl:px-12">
           <h2 className="text-xl md:text-2xl font-bold mb-6 text-warrior-dark">
