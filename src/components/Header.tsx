@@ -40,13 +40,13 @@ export const Header = () => {
           />
         </a>
 
-        {/* Investor Login - updated to Garamond 10px */}
+        {/* Investor Login - updated styling with border bottom */}
         <a
           href="/login"
-          className={`transition-colors font-['EB_Garamond'] text-[10px] uppercase underline ${
+          className={`transition-colors font-['EB_Garamond'] text-[12px] tracking-wide uppercase border-b ${
             isScrolled 
-              ? 'text-warrior-dark hover:text-warrior-purple' 
-              : 'text-white hover:text-warrior-gray'
+              ? 'text-warrior-dark hover:text-warrior-purple border-warrior-dark' 
+              : 'text-white hover:text-warrior-gray border-white'
           }`}
         >
           Investor Login
