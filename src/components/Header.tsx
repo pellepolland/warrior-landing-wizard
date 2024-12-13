@@ -35,7 +35,7 @@ export const Header = () => {
           <img 
             src="/lovable-uploads/7611d285-1ab8-40e9-b8c1-c4ca9ddd53b8.png"
             alt="Warrior Capital"
-            className="h-8 w-auto"
+            className="h-6 w-auto"
           />
         </a>
 
