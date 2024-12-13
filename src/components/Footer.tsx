@@ -17,8 +17,15 @@ export const Footer = () => {
           {/* Address */}
           <div>
             <h3 className="font-semibold mb-6 text-lg">Address</h3>
-            <p className="text-warrior-gray text-lg">103 Portobello Road</p>
-            <p className="text-warrior-gray text-lg">London W11 2QB</p>
+            <a 
+              href="https://maps.app.goo.gl/CJWVFeoxHmA7cGAu8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-warrior-gray hover:text-white transition-colors"
+            >
+              <p className="text-lg">103 Portobello Road</p>
+              <p className="text-lg">London W11 2QB</p>
+            </a>
           </div>
 
           {/* Contact */}
@@ -38,21 +45,19 @@ export const Footer = () => {
             <h3 className="font-semibold mb-6 text-lg">Find us on</h3>
             <div className="space-y-4">
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/warrior_capital" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center gap-3 text-warrior-gray hover:text-white transition-colors text-lg"
+                className="block text-warrior-gray hover:text-white transition-colors text-lg"
               >
-                <Instagram size={24} />
                 Instagram
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://uk.linkedin.com/company/warrior-capital1" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center gap-3 text-warrior-gray hover:text-white transition-colors text-lg"
+                className="block text-warrior-gray hover:text-white transition-colors text-lg"
               >
-                <Linkedin size={24} />
                 LinkedIn
               </a>
             </div>
