@@ -42,7 +42,8 @@ export const useLogoTransition = () => {
         if (scrollPosition >= missionEnd) {
           const fadeOutDistance = aboutStart - missionEnd;
           const fadeOutProgress = (scrollPosition - missionEnd) / fadeOutDistance;
-          blackOpacity = Math.max(0, 1 - fadeOutProgress * 2);
+          // Adjusted the fade out calculation to be more gradual
+          blackOpacity = Math.max(0, 1 - (fadeOutProgress * 1.5)); // Slowed down the fade out
         }
         
         setOpacities({ white: whiteOpacity, black: blackOpacity });
