@@ -6,41 +6,38 @@ export const useLogoTransition = () => {
   useEffect(() => {
     const handleScroll = () => {
       const missionSection = document.querySelector('.mission-section');
-      const aboutSection = document.querySelector('.min-h-screen.flex.items-center');
       const logoContainer = document.getElementById('logo-container');
       
-      if (missionSection && logoContainer && aboutSection) {
+      if (missionSection && logoContainer) {
         const scrollPosition = window.scrollY;
         const missionRect = missionSection.getBoundingClientRect();
-        const aboutRect = aboutSection.getBoundingClientRect();
         const missionStart = window.scrollY + missionRect.top;
         const missionEnd = missionStart + missionRect.height;
-        const aboutStart = window.scrollY + aboutRect.top;
         
         // Position the logo container
-        if (scrollPosition <= aboutStart) {
+        if (scrollPosition <= missionEnd) {
           logoContainer.style.position = 'fixed';
           logoContainer.style.top = '50%';
           logoContainer.style.left = '50%';
           logoContainer.style.transform = 'translate(-50%, -50%)';
         } else {
           logoContainer.style.position = 'absolute';
-          logoContainer.style.top = `${aboutStart}px`;
+          logoContainer.style.top = `${missionEnd}px`;
         }
         
         let whiteOpacity = 1;
         let blackOpacity = 0;
         
-        // First transition: white to black during mission section
+        // First transition: white to black
         if (scrollPosition >= missionStart - window.innerHeight * 0.3) {
           const progress = (scrollPosition - (missionStart - window.innerHeight * 0.3)) / (missionRect.height * 0.7);
           whiteOpacity = Math.max(0, 1 - progress * 2);
           blackOpacity = Math.min(1, progress * 2);
         }
         
-        // Second transition: black to transparent through about section
+        // Second transition: black to transparent
         if (scrollPosition >= missionEnd) {
-          const fadeOutDistance = aboutStart - missionEnd;
+          const fadeOutDistance = window.innerHeight;
           const fadeOutProgress = Math.min(1, (scrollPosition - missionEnd) / fadeOutDistance);
           blackOpacity = Math.max(0, 1 - fadeOutProgress);
         }
