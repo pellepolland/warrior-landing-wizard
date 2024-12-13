@@ -9,7 +9,7 @@ export const FooterAddress = () => {
           rel="noopener noreferrer"
           className="text-warrior-gray hover:text-white transition-colors"
         >
-          <p className="text-xs mb-1">103 Portobello Road</p>
+          <p className="text-xs mb-2">103 Portobello Road</p>
           <p className="text-xs">London W11 2QB</p>
         </a>
       </div>
