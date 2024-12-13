@@ -16,9 +16,6 @@ export const Hero = () => {
           />
           Your browser does not support the video tag.
         </video>
-        
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-warrior-dark/80" />
       </div>
     </section>
   );
