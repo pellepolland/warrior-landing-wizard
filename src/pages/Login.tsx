@@ -25,7 +25,7 @@ const Login = () => {
       <Button
         variant="ghost"
         onClick={() => navigate("/")}
-        className="absolute top-4 left-4 text-white hover:bg-white hover:text-black rounded-none"
+        className="absolute top-4 left-4 text-white hover:bg-white hover:text-black rounded-none font-light"
       >
         <ChevronLeft className="mr-2" />
         Back
@@ -38,7 +38,7 @@ const Login = () => {
             alt="Warrior Capital"
             className="h-12 w-auto mb-8"
           />
-          <h2 className="text-2xl font-semibold text-white mb-2">
+          <h2 className="text-2xl font-light text-white mb-2 tracking-wide">
             Investor Login
           </h2>
         </div>
@@ -47,7 +47,7 @@ const Login = () => {
           <div className="space-y-2">
             <label
               htmlFor="username"
-              className="block text-sm font-medium text-warrior-gray"
+              className="block text-sm font-light text-warrior-gray tracking-wide"
             >
               Username
             </label>
@@ -56,7 +56,7 @@ const Login = () => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="bg-transparent border-warrior-gray text-white rounded-none"
+              className="bg-transparent border-warrior-gray text-white rounded-none font-light tracking-wide"
               placeholder="Enter your username"
               required
             />
@@ -65,7 +65,7 @@ const Login = () => {
           <div className="space-y-2">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-warrior-gray"
+              className="block text-sm font-light text-warrior-gray tracking-wide"
             >
               Password
             </label>
@@ -74,7 +74,7 @@ const Login = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="bg-transparent border-warrior-gray text-white rounded-none"
+              className="bg-transparent border-warrior-gray text-white rounded-none font-light tracking-wide"
               placeholder="Enter your password"
               required
             />
@@ -82,7 +82,7 @@ const Login = () => {
 
           <Button 
             type="submit"
-            className="w-full bg-white hover:bg-gray-100 text-black rounded-none"
+            className="w-full bg-white hover:bg-gray-100 text-black rounded-none font-light tracking-wide"
           >
             Sign In
           </Button>
