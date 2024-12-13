@@ -16,6 +16,7 @@ export const useLogoTransition = () => {
         const missionStart = window.scrollY + missionRect.top;
         const missionEnd = missionStart + missionRect.height;
         const aboutStart = window.scrollY + aboutRect.top;
+        const aboutEnd = aboutStart + aboutRect.height;
         
         // Position the logo container
         if (scrollPosition <= aboutStart) {
@@ -38,11 +39,12 @@ export const useLogoTransition = () => {
           blackOpacity = Math.min(1, progress * 2);
         }
         
-        // Second transition: black to transparent during about section approach
+        // Second transition: black to transparent through the about section
         if (scrollPosition >= missionEnd) {
-          const fadeOutDistance = aboutStart - missionEnd;
-          const fadeOutProgress = Math.min(1, (scrollPosition - missionEnd) / fadeOutDistance);
-          blackOpacity = Math.max(0, 1 - fadeOutProgress);
+          // Calculate fade out progress based on the entire about section height
+          const totalFadeDistance = aboutEnd - missionEnd;
+          const fadeProgress = (scrollPosition - missionEnd) / totalFadeDistance;
+          blackOpacity = Math.max(0, 1 - fadeProgress);
         }
         
         setOpacities({ white: whiteOpacity, black: blackOpacity });
