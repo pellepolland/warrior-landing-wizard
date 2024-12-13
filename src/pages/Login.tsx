@@ -34,7 +34,7 @@ const Login = () => {
       <div className="w-full max-w-md space-y-8">
         <div className="flex flex-col items-center">
           <img
-            src="/lovable-uploads/c865e138-a44c-4a9e-8650-447e5445df7f.png"
+            src="/lovable-uploads/7611d285-1ab8-40e9-b8c1-c4ca9ddd53b8.png"
             alt="Warrior Capital"
             className="h-12 w-auto mb-8"
           />
