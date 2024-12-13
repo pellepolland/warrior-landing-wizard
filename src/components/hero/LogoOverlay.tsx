@@ -16,13 +16,7 @@ export const LogoOverlay = ({
   scale 
 }: LogoOverlayProps) => {
   return (
-    <div 
-      id="logo-container" 
-      className="fixed inset-0 flex items-start justify-center z-10"
-      style={{
-        paddingTop: '2rem'
-      }}
-    >
+    <div id="logo-container" className="fixed inset-0 flex items-center justify-center z-10">
       <div 
         className="relative w-full max-w-[80vw]"
         style={{ 
