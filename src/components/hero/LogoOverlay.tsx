@@ -3,12 +3,27 @@ interface LogoOverlayProps {
   blackLogo: string;
   whiteOpacity: number;
   blackOpacity: number;
+  overall: number;
+  scale: number;
 }
 
-export const LogoOverlay = ({ whiteLogo, blackLogo, whiteOpacity, blackOpacity }: LogoOverlayProps) => {
+export const LogoOverlay = ({ 
+  whiteLogo, 
+  blackLogo, 
+  whiteOpacity, 
+  blackOpacity,
+  overall,
+  scale 
+}: LogoOverlayProps) => {
   return (
     <div id="logo-container" className="fixed inset-0 flex items-center justify-center z-10">
-      <div className="relative w-full max-w-[80vw]">
+      <div 
+        className="relative w-full max-w-[80vw] transition-transform duration-300"
+        style={{ 
+          opacity: overall,
+          transform: `scale(${scale})`
+        }}
+      >
         <img
           id="white-logo"
           src={whiteLogo}
