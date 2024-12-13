@@ -1,33 +1,42 @@
 import { useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useToast } from "@/components/ui/use-toast";
+import { ChevronLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // In a real app, this would be an API call
     toast({
       variant: "destructive",
-      title: "Invalid credentials",
-      description: "The username or password you entered is incorrect.",
+      title: "Error",
+      description: "Invalid username or password",
     });
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
-      <div className="w-full max-w-md space-y-8 animate-fade-up">
-        <div className="text-center">
-          <img 
+    <div className="min-h-screen bg-warrior-dark flex flex-col items-center justify-center p-4">
+      <Button
+        variant="ghost"
+        onClick={() => navigate("/")}
+        className="absolute top-4 left-4 text-white hover:bg-warrior-dark/10 rounded-none"
+      >
+        <ChevronLeft className="mr-2" />
+        Back
+      </Button>
+
+      <div className="w-full max-w-md space-y-8">
+        <div className="flex flex-col items-center">
+          <img
             src="/lovable-uploads/c865e138-a44c-4a9e-8650-447e5445df7f.png"
             alt="Warrior Capital"
-            className="h-12 mx-auto mb-8"
+            className="h-12 w-auto mb-8"
           />
           <h2 className="text-2xl font-semibold text-white mb-2">
             Investor Login
@@ -36,9 +45,12 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="username" className="text-white">
+            <label
+              htmlFor="username"
+              className="block text-sm font-medium text-warrior-gray"
+            >
               Username
-            </Label>
+            </label>
             <Input
               id="username"
               type="text"
@@ -51,9 +63,12 @@ const Login = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="password" className="text-white">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-warrior-gray"
+            >
               Password
-            </Label>
+            </label>
             <Input
               id="password"
               type="password"
