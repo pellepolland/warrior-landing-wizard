@@ -42,7 +42,7 @@ export const Footer = () => {
           ref={wordmarkRef}
           src="/lovable-uploads/3bba71e3-b348-449d-8ee0-bf29d669d35e.png" 
           alt="Warrior Capital"
-          className="mb-8 h-12 transition-all duration-1000 opacity-0 translate-y-10"
+          className="mb-8 h-12 transition-all duration-2000 opacity-0 translate-y-10"
         />
         <p className="text-sm">
           Detailed information about Warrior projects is available upon request.

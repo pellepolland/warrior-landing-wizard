@@ -78,6 +78,9 @@ export default {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
+      transitionDuration: {
+        '2000': '2000ms',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
