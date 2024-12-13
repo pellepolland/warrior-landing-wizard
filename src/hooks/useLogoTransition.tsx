@@ -36,17 +36,21 @@ export const useLogoTransition = () => {
           logoContainer.style.transform = 'translate(-50%, -50%)';
         } else {
           const distanceToTop = 32; // Final top position (2rem)
+          const startPosition = viewportHeight / 2; // Starting from center
           
-          // Calculate the exact scroll progress
+          // Calculate the scroll progress
           const scrollProgress = Math.max(0, Math.min(1, 
             (scrollPosition - (missionEnd - viewportHeight * 0.4)) / (viewportHeight * 0.3)
           ));
           
-          // Set the final position directly without additional animation
+          // Calculate the current position based on scroll progress
+          const currentTop = startPosition - ((startPosition - distanceToTop) * scrollProgress);
+          
+          // Apply the position
           logoContainer.style.position = 'fixed';
-          logoContainer.style.top = `${distanceToTop}px`;
+          logoContainer.style.top = `${currentTop}px`;
           logoContainer.style.left = '50%';
-          logoContainer.style.transform = 'translate(-50%, 0)';
+          logoContainer.style.transform = `translate(-50%, ${scrollProgress >= 1 ? '0' : '-50%'})`;
         }
         
         setOpacities({ white: whiteOpacity, black: blackOpacity });
