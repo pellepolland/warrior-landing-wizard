@@ -20,12 +20,12 @@ export const LogoOverlay = ({
   const isAnimating = scale < 1;
   
   // Calculate vertical position - moves from center (50%) to top (0) as scale decreases
-  const translateY = isAnimating ? `${(scale - 0.1) * 50}%` : '0';
+  const translateY = `${(scale - 0.1) * 50}%`;
   
   return (
     <div 
       id="logo-container" 
-      className="fixed inset-0 flex items-start justify-center z-10"
+      className={`fixed inset-0 flex ${isAnimating ? 'items-start' : 'items-center'} justify-center z-10`}
     >
       <div 
         className="relative w-full max-w-[80vw]"
