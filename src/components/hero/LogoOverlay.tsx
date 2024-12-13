@@ -3,18 +3,11 @@ interface LogoOverlayProps {
   blackLogo: string;
   whiteOpacity: number;
   blackOpacity: number;
-  position: { isCentered: boolean; progress: number };
 }
 
-export const LogoOverlay = ({ whiteLogo, blackLogo, whiteOpacity, blackOpacity, position }: LogoOverlayProps) => {
-  const translateY = position.isCentered ? '0' : `${-50 * position.progress}vh`;
-  
+export const LogoOverlay = ({ whiteLogo, blackLogo, whiteOpacity, blackOpacity }: LogoOverlayProps) => {
   return (
-    <div 
-      id="logo-container" 
-      className="fixed inset-0 flex items-center justify-center z-10 transition-transform"
-      style={{ transform: `translateY(${translateY})` }}
-    >
+    <div id="logo-container" className="fixed inset-0 flex items-center justify-center z-10">
       <div className="relative w-full max-w-[80vw]">
         <img
           id="white-logo"
