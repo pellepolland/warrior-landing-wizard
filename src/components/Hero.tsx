@@ -26,7 +26,7 @@ export const Hero = () => {
     const handleScroll = () => {
       if (logoRef.current) {
         const scrollPosition = window.scrollY;
-        const heroHeight = window.innerHeight;
+        const heroHeight = window.innerHeight * 0.5; // Reduce the scroll distance needed
         const progress = Math.min(scrollPosition / heroHeight, 1);
 
         // Calculate transformations based on scroll progress
@@ -75,7 +75,7 @@ export const Hero = () => {
       {/* Logo overlay */}
       <div 
         ref={logoRef}
-        className="relative z-10 w-full max-w-[80vw] mx-auto transition-all duration-300"
+        className="relative z-10 w-full max-w-[80vw] mx-auto transition-all duration-150"
       >
         <img
           src="/lovable-uploads/7f78581e-ed7d-4d54-8424-08e21e04f672.png"
