@@ -7,6 +7,7 @@ import { PurposeBlock } from "@/components/PurposeBlock";
 import { ApproachBlock } from "@/components/ApproachBlock";
 import { ValueBlock } from "@/components/ValueBlock";
 import { InvestmentBlock } from "@/components/InvestmentBlock";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <ApproachBlock />
       <ValueBlock />
       <InvestmentBlock />
+      <Footer />
     </main>
   );
 };
