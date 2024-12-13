@@ -40,12 +40,12 @@ export const useLogoTransition = () => {
         
         // Second transition: black to transparent approaching about section
         if (scrollPosition >= missionEnd) {
-          // Calculate the distance between mission end and about start
           const fadeOutDistance = aboutStart - missionEnd;
-          // Calculate progress based on current scroll position
           const progress = Math.max(0, Math.min(1, (scrollPosition - missionEnd) / fadeOutDistance));
-          // Apply the fade out to black opacity
           blackOpacity = Math.max(0, 1 - progress);
+        } else if (scrollPosition < missionEnd) {
+          // This ensures the black logo is visible when scrolling up through the mission section
+          blackOpacity = Math.min(1, ((scrollPosition - (missionStart - window.innerHeight * 0.3)) / (missionRect.height * 0.7)) * 2);
         }
         
         setOpacities({ white: whiteOpacity, black: blackOpacity });
