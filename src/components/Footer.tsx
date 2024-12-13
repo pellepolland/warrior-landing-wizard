@@ -34,7 +34,7 @@ export const Footer = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} className="bg-black text-white py-24 px-4 animate-fade-up">
+    <footer ref={footerRef} className="bg-black text-white py-24 px-4 animate-fade-up uppercase">
       {/* Top section */}
       <div className="container mx-auto mb-32">
         <img 
@@ -43,7 +43,7 @@ export const Footer = () => {
           alt="Warrior Capital"
           className="mb-8 h-12 transition-all duration-1000 opacity-0 translate-y-10"
         />
-        <p className="text-xl">
+        <p className="text-sm">
           Detailed information about Warrior projects is available upon request.
         </p>
       </div>
@@ -53,25 +53,25 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Address */}
           <div>
-            <h3 className="font-semibold mb-6 text-lg">Address</h3>
+            <h3 className="font-semibold mb-6 text-sm">Address</h3>
             <a 
               href="https://maps.app.goo.gl/CJWVFeoxHmA7cGAu8"
               target="_blank"
               rel="noopener noreferrer"
               className="text-warrior-gray hover:text-white transition-colors"
             >
-              <p className="text-lg">103 Portobello Road</p>
-              <p className="text-lg">London W11 2QB</p>
+              <p className="text-sm">103 Portobello Road</p>
+              <p className="text-sm">London W11 2QB</p>
             </a>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-6 text-lg">Get in touch</h3>
-            <p className="text-warrior-gray text-lg">+44 (0) 207 985 0157</p>
+            <h3 className="font-semibold mb-6 text-sm">Get in touch</h3>
+            <p className="text-warrior-gray text-sm">+44 (0) 207 985 0157</p>
             <a 
               href="mailto:info@warriorcapital.co.uk" 
-              className="text-warrior-gray hover:text-white transition-colors text-lg"
+              className="text-warrior-gray hover:text-white transition-colors text-sm"
             >
               info@warriorcapital.co.uk
             </a>
@@ -79,13 +79,13 @@ export const Footer = () => {
 
           {/* Social */}
           <div>
-            <h3 className="font-semibold mb-6 text-lg">Find us on</h3>
+            <h3 className="font-semibold mb-6 text-sm">Find us on</h3>
             <div className="space-y-4">
               <a 
                 href="https://www.instagram.com/warrior_capital" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="block text-warrior-gray hover:text-white transition-colors text-lg"
+                className="block text-warrior-gray hover:text-white transition-colors text-sm"
               >
                 Instagram
               </a>
@@ -93,7 +93,7 @@ export const Footer = () => {
                 href="https://uk.linkedin.com/company/warrior-capital1" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="block text-warrior-gray hover:text-white transition-colors text-lg"
+                className="block text-warrior-gray hover:text-white transition-colors text-sm"
               >
                 LinkedIn
               </a>
