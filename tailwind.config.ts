@@ -25,6 +25,7 @@ export default {
     },
     extend: {
       fontFamily: {
+        sans: ['Recital', 'system-ui', 'sans-serif'],
         custom: ['Recital', 'system-ui', 'sans-serif'],
       },
       colors: {
