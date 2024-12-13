@@ -4,28 +4,17 @@ export const Hero = () => {
   const videoContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const options = {
-      threshold: Array.from({ length: 100 }, (_, i) => i / 100),
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (videoContainerRef.current) {
-          const opacity = entry.intersectionRatio;
-          videoContainerRef.current.style.opacity = opacity.toString();
-        }
-      });
-    }, options);
-
-    if (videoContainerRef.current) {
-      observer.observe(videoContainerRef.current);
-    }
-
-    return () => {
+    const handleScroll = () => {
       if (videoContainerRef.current) {
-        observer.unobserve(videoContainerRef.current);
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const opacity = Math.max(0, 1 - (scrollPosition / windowHeight));
+        videoContainerRef.current.style.opacity = opacity.toString();
       }
     };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
