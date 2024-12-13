@@ -15,9 +15,9 @@ export const LogoOverlay = ({
   overall,
   scale 
 }: LogoOverlayProps) => {
-  // Calculate position based on scale to match header padding (px-4)
-  const translateX = `calc(${(1 - scale) * -50}% + ${(1 - scale) * 16}px)`;
-  const translateY = `calc(${(1 - scale) * -50}% + ${(1 - scale) * 16}px)`;
+  // Calculate position based on scale
+  const translateX = `${(1 - scale) * -50}%`;
+  const translateY = `${(1 - scale) * -50}%`;
 
   return (
     <div id="logo-container" className="fixed inset-0 flex items-center justify-center z-10">
