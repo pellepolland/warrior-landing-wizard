@@ -18,10 +18,11 @@ export const LogoOverlay = ({
   return (
     <div id="logo-container" className="fixed inset-0 flex items-center justify-center z-10">
       <div 
-        className="relative w-full max-w-[80vw] transition-transform duration-300"
+        className="relative w-full max-w-[80vw]"
         style={{ 
           opacity: overall,
-          transform: `scale(${scale})`
+          transform: `scale(${scale})`,
+          transition: 'transform 0.1s linear, opacity 0.1s linear'
         }}
       >
         <img
