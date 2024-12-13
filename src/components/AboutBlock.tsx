@@ -38,7 +38,7 @@ export const AboutBlock = () => {
             muted
             playsInline
           >
-            <source src="/videos/about-video.mov" type="video/quicktime" />
+            <source src="https://cdn.prod.website-files.com/670fe89eb5229a7ce7da32e2%2F6717d0991841085902747eec_Vignette%20Stucco-transcode.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
