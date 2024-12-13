@@ -24,6 +24,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        custom: ['YourCustomFont', 'system-ui', 'sans-serif'],
+      },
       colors: {
         warrior: {
           purple: "#9b87f5",
