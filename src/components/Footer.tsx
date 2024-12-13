@@ -10,6 +10,10 @@ export const Footer = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-up', 'opacity-100');
+        } else {
+          // Remove classes when footer is not in view
+          entry.target.classList.remove('animate-fade-up', 'opacity-100');
+          entry.target.classList.add('opacity-0', 'translate-y-10');
         }
       },
       {
