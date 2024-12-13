@@ -29,37 +29,24 @@ export const useLogoTransition = () => {
 
         // Position handling
         if (scrollPosition <= missionEnd - viewportHeight * 0.4) {
-          // Keep logo centered until earlier in the scroll
+          // Keep logo centered
           logoContainer.style.position = 'fixed';
           logoContainer.style.top = '50%';
           logoContainer.style.left = '50%';
           logoContainer.style.transform = 'translate(-50%, -50%)';
         } else {
-          // Calculate progress for the transition from center to top
-          const distanceToTop = 32; // 2rem = 32px (final top position)
-          const startPosition = viewportHeight / 2; // Center of viewport
-          const transitionDistance = startPosition - distanceToTop;
+          const distanceToTop = 32; // Final top position (2rem)
           
-          // Adjusted transition timing
+          // Calculate the exact scroll progress
           const scrollProgress = Math.max(0, Math.min(1, 
             (scrollPosition - (missionEnd - viewportHeight * 0.4)) / (viewportHeight * 0.3)
           ));
           
-          const targetTop = startPosition - (transitionDistance * scrollProgress);
-          
-          if (scrollPosition >= missionEnd - viewportHeight * 0.1) {
-            // When reaching the top position, fix it without fading
-            logoContainer.style.position = 'fixed';
-            logoContainer.style.top = `${distanceToTop}px`;
-            logoContainer.style.left = '50%';
-            logoContainer.style.transform = 'translate(-50%, 0)';
-          } else {
-            // Smooth transition from center to top
-            logoContainer.style.position = 'fixed';
-            logoContainer.style.top = `${targetTop}px`;
-            logoContainer.style.left = '50%';
-            logoContainer.style.transform = `translate(-50%, ${scrollProgress >= 1 ? '0' : '-50%'})`;
-          }
+          // Set the final position directly without additional animation
+          logoContainer.style.position = 'fixed';
+          logoContainer.style.top = `${distanceToTop}px`;
+          logoContainer.style.left = '50%';
+          logoContainer.style.transform = 'translate(-50%, 0)';
         }
         
         setOpacities({ white: whiteOpacity, black: blackOpacity });
