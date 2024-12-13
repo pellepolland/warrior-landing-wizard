@@ -28,8 +28,8 @@ export const useLogoTransition = () => {
         }
 
         // Position handling
-        const transitionStartPoint = missionStart + (missionRect.height * 0.5); // Start halfway through mission section
-        const transitionEndPoint = missionEnd - 100; // End just before the about section, with some padding
+        const transitionStartPoint = missionEnd - viewportHeight * 0.4;
+        const transitionEndPoint = missionEnd;
         
         if (scrollPosition <= transitionStartPoint) {
           // Keep centered
@@ -53,7 +53,7 @@ export const useLogoTransition = () => {
           logoContainer.style.position = 'fixed';
           logoContainer.style.top = `${currentY}px`;
           logoContainer.style.left = '50%';
-          logoContainer.style.transform = `translate(-50%, ${progress >= 1 ? '0' : '-50%'})`;
+          logoContainer.style.transform = 'translate(-50%, -50%)';
         }
         
         setOpacities({ white: whiteOpacity, black: blackOpacity });
