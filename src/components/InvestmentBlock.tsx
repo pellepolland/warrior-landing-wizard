@@ -18,10 +18,10 @@ export const InvestmentBlock = () => {
 
         {/* Text content */}
         <div className="flex flex-col justify-center animate-fade-up">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-warrior-dark">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 text-warrior-dark">
             INVESTMENT
           </h2>
-          <div className="space-y-6 text-gray-600">
+          <div className="space-y-6 text-gray-600 text-sm md:text-base">
             <p>
               Our approach to investment is guided by the Warrior ethos - blending intuition, experience, and a deep respect for genius loci. With a firm commitment to ESG principles and sustainability, we aim to create lasting value while safeguarding both the environment and the places we create for future generations.
             </p>
