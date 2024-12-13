@@ -1,9 +1,35 @@
 import { Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 export const Footer = () => {
+  const footerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-up', 'opacity-100');
+        }
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => {
+      if (footerRef.current) {
+        observer.unobserve(footerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <footer className="bg-black text-white py-24 px-4 animate-fade-up">
+    <footer ref={footerRef} className="bg-black text-white py-24 px-4 opacity-0 translate-y-10 transition-all duration-800">
       {/* Top section */}
       <div className="container mx-auto mb-32">
         <img 
