@@ -30,10 +30,12 @@ export const Header = () => {
         {/* Logo */}
         <a 
           href="/" 
-          className={`transition-colors`}
+          className={`transition-opacity duration-300 ${
+            isScrolled ? 'opacity-100' : 'opacity-0'
+          }`}
         >
           <img 
-            src="/lovable-uploads/7611d285-1ab8-40e9-b8c1-c4ca9ddd53b8.png"
+            src="/lovable-uploads/c865e138-a44c-4a9e-8650-447e5445df7f.png"
             alt="Warrior Capital"
             className="h-6 w-auto"
           />
