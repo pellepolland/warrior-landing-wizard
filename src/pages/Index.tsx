@@ -8,10 +8,12 @@ import { ApproachBlock } from "@/components/ApproachBlock";
 import { ValueBlock } from "@/components/ValueBlock";
 import { InvestmentBlock } from "@/components/InvestmentBlock";
 import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 
 const Index = () => {
   return (
     <main className="overflow-hidden">
+      <Header />
       <Hero />
       <Mission />
       <AboutBlock />
