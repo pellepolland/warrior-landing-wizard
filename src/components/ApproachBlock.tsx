@@ -29,7 +29,7 @@ export const ApproachBlock = () => {
             muted
             playsInline
           >
-            <source src="/videos/approach-video.mov" type="video/quicktime" />
+            <source src="https://cdn.prod.website-files.com/670fe89eb5229a7ce7da32e2/6717d08e9e8bff577df79692_Vignette%20Portobello%20Road%20Sign%20and%20Building-transcode.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
