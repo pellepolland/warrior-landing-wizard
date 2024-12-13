@@ -40,10 +40,10 @@ export const Header = () => {
           />
         </a>
 
-        {/* Investor Login - updated font and added underline */}
+        {/* Investor Login - updated to Garamond 10px */}
         <a
           href="/login"
-          className={`transition-colors font-['Helvetica'] font-light uppercase underline ${
+          className={`transition-colors font-['EB_Garamond'] text-[10px] uppercase underline ${
             isScrolled 
               ? 'text-warrior-dark hover:text-warrior-purple' 
               : 'text-white hover:text-warrior-gray'
