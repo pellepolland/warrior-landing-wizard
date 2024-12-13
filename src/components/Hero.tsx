@@ -26,13 +26,12 @@ export const Hero = () => {
     const handleScroll = () => {
       if (logoRef.current) {
         const scrollPosition = window.scrollY;
-        const heroHeight = window.innerHeight * 0.5; // Reduce the scroll distance needed
+        const heroHeight = window.innerHeight * 0.5;
         const progress = Math.min(scrollPosition / heroHeight, 1);
 
-        // Calculate transformations based on scroll progress
-        const scale = 1 - (progress * 0.9); // Scale from 1 to 0.1 (more extreme reduction)
-        const translateX = progress * -45; // Move to left
-        const translateY = progress * -5; // Reduced vertical movement to keep logo visible and lower
+        const scale = 1 - (progress * 0.9);
+        const translateX = progress * -45;
+        const translateY = progress * -5;
         const opacity = 1 - progress;
 
         logoRef.current.style.transform = `translate(${translateX}vw, ${translateY}vh) scale(${scale})`;
@@ -55,7 +54,7 @@ export const Hero = () => {
       {/* Video background */}
       <div 
         ref={videoContainerRef}
-        className="absolute inset-0 z-0 transition-opacity duration-300"
+        className="absolute inset-0 z-0 transition-opacity duration-150"
       >
         <video
           className="w-full h-full object-cover"
