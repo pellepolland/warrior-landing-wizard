@@ -17,9 +17,13 @@ export const LogoOverlay = ({
 }: LogoOverlayProps) => {
   // Calculate position based on scale to match header padding (px-4)
   const translateX = `calc(${(1 - scale) * -50}% + ${(1 - scale) * 16}px)`;
+  const isAnimating = scale < 1;
 
   return (
-    <div id="logo-container" className="fixed inset-0 flex items-start pt-4 justify-center z-10">
+    <div 
+      id="logo-container" 
+      className={`fixed inset-0 flex ${isAnimating ? 'items-start pt-4' : 'items-center'} justify-center z-10`}
+    >
       <div 
         className="relative w-full max-w-[80vw]"
         style={{ 
