@@ -27,15 +27,30 @@ export const Hero = () => {
     const handleScroll = () => {
       const whiteLogoElement = document.getElementById('white-logo');
       const blackLogoElement = document.getElementById('black-logo');
+      const logoContainer = document.getElementById('logo-container');
       
-      if (whiteLogoElement && blackLogoElement) {
+      if (whiteLogoElement && blackLogoElement && logoContainer) {
         const scrollPosition = window.scrollY;
-        const triggerPoint = window.innerHeight; // Trigger at second block
+        const secondBlockEnd = window.innerHeight * 2; // End of second block
+        
+        // Keep the logo container fixed until the end of the second block
+        if (scrollPosition <= secondBlockEnd) {
+          logoContainer.style.position = 'fixed';
+          logoContainer.style.top = '50%';
+          logoContainer.style.left = '50%';
+          logoContainer.style.transform = 'translate(-50%, -50%)';
+        } else {
+          logoContainer.style.position = 'absolute';
+          logoContainer.style.top = `${secondBlockEnd}px`;
+        }
+        
+        // Calculate opacity based on scroll position
+        const fadeStart = window.innerHeight; // Start fade at first block end
         const fadeDistance = window.innerHeight * 0.5; // Distance over which fade occurs
         
         let opacity = 1;
-        if (scrollPosition > triggerPoint) {
-          opacity = Math.max(0, 1 - (scrollPosition - triggerPoint) / fadeDistance);
+        if (scrollPosition > fadeStart) {
+          opacity = Math.max(0, 1 - (scrollPosition - fadeStart) / fadeDistance);
         }
         
         whiteLogoElement.style.opacity = opacity.toString();
@@ -44,6 +59,8 @@ export const Hero = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Initial position
+    handleScroll();
 
     return () => {
       if (videoContainerRef.current) {
@@ -76,7 +93,7 @@ export const Hero = () => {
       </div>
 
       {/* Logo overlay */}
-      <div className="relative z-10 w-full max-w-[80vw] mx-auto">
+      <div id="logo-container" className="fixed z-10 w-full max-w-[80vw] mx-auto">
         <div className="relative">
           {/* White logo */}
           <img
