@@ -3,15 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'Recital';
-    src: url('/fonts/Recital.woff2') format('woff2'),
-         url('/fonts/Recital.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
   * {
     @apply border-border;
   }
