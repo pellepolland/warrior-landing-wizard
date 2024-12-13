@@ -30,7 +30,7 @@ export const Hero = () => {
         const progress = Math.min(scrollPosition / heroHeight, 1);
 
         // Calculate transformations based on scroll progress
-        const scale = 1 - (progress * 0.9); // Scale from 1 to 0.1 (more extreme reduction)
+        const scale = 1 - (progress * 0.7); // Scale from 1 to 0.3
         const translateX = progress * -45; // Move to left
         const translateY = progress * -45; // Move up
         const opacity = 1 - progress;
