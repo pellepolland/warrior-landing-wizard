@@ -27,8 +27,8 @@ export const useLogoTransition = () => {
           blackOpacity = Math.min(1, progress * 2);
         }
 
-        // Position and fade handling
-        if (scrollPosition <= missionEnd - viewportHeight * 0.4) { // Adjusted timing to start transition earlier
+        // Position handling
+        if (scrollPosition <= missionEnd - viewportHeight * 0.4) {
           // Keep logo centered until earlier in the scroll
           logoContainer.style.position = 'fixed';
           logoContainer.style.top = '50%';
@@ -47,11 +47,8 @@ export const useLogoTransition = () => {
           
           const targetTop = startPosition - (transitionDistance * scrollProgress);
           
-          if (scrollPosition >= missionEnd - viewportHeight * 0.1) { // Earlier fade out
-            // When reaching the top position, fix it and start fading
-            const fadeProgress = Math.min(1, (scrollPosition - (missionEnd - viewportHeight * 0.1)) / (viewportHeight * 0.2));
-            blackOpacity = Math.max(0, 1 - fadeProgress);
-            
+          if (scrollPosition >= missionEnd - viewportHeight * 0.1) {
+            // When reaching the top position, fix it without fading
             logoContainer.style.position = 'fixed';
             logoContainer.style.top = `${distanceToTop}px`;
             logoContainer.style.left = '50%';
