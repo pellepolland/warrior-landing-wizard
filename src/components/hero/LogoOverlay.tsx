@@ -18,20 +18,17 @@ export const LogoOverlay = ({
   // Calculate position based on scale to match header padding (px-4)
   const translateX = `calc(${(1 - scale) * -50}% + ${(1 - scale) * 16}px)`;
   const isAnimating = scale < 1;
-  
-  // Calculate vertical position - moves from center (50%) to top (0) as scale decreases
-  const translateY = isAnimating ? `${(scale - 0.1) * 50}%` : '0';
-  
+
   return (
     <div 
       id="logo-container" 
-      className="fixed inset-0 flex items-start justify-center z-10"
+      className={`fixed inset-0 flex ${isAnimating ? 'items-start pt-4' : 'items-center'} justify-center z-10`}
     >
       <div 
         className="relative w-full max-w-[80vw]"
         style={{ 
           opacity: overall,
-          transform: `translate(${translateX}, ${translateY}) scale(${scale})`,
+          transform: `translateX(${translateX}) scale(${scale})`,
           transition: 'transform 0.1s linear, opacity 0.1s linear',
           transformOrigin: 'top left'
         }}
