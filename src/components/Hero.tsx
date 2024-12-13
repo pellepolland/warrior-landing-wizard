@@ -3,13 +3,31 @@ import { Button } from "./ui/button";
 
 export const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-warrior-dark text-white px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-up">
+    <section className="relative min-h-screen flex items-center justify-center px-4">
+      {/* Background image container */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url("/background-image.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-warrior-dark/80" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-up text-white">
           Transforming Ideas Into
           <span className="text-warrior-purple"> Digital Success</span>
         </h1>
-        <p className="text-lg md:text-xl mb-8 text-warrior-gray animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <p 
+          className="text-lg md:text-xl mb-8 text-warrior-gray animate-fade-up" 
+          style={{ animationDelay: "0.2s" }}
+        >
           We help businesses achieve their goals through innovative digital solutions
         </p>
         <Button 
