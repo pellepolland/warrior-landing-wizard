@@ -21,11 +21,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-warrior-dark flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-[#000000] flex flex-col items-center justify-center p-4">
       <Button
         variant="ghost"
         onClick={() => navigate("/")}
-        className="absolute top-4 left-4 text-white hover:bg-warrior-dark/10 rounded-none"
+        className="absolute top-4 left-4 text-white hover:bg-[#000000]/10 rounded-none"
       >
         <ChevronLeft className="mr-2" />
         Back
