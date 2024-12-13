@@ -1,9 +1,9 @@
 export const AboutBlock = () => {
   return (
     <section className="min-h-screen flex items-center">
-      <div className="container mx-auto grid md:grid-cols-2 gap-12 px-4">
+      <div className="w-full grid md:grid-cols-2 gap-12">
         {/* Text content */}
-        <div className="flex flex-col justify-center animate-fade-up">
+        <div className="flex flex-col justify-center animate-fade-up px-4 sm:px-6 lg:px-12 xl:px-16">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-warrior-dark">
             ABOUT US
           </h2>
@@ -32,7 +32,7 @@ export const AboutBlock = () => {
         {/* Video content */}
         <div className="relative h-[400px] md:h-full animate-fade-up">
           <video
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover"
             autoPlay
             loop
             muted
