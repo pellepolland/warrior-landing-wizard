@@ -32,7 +32,7 @@ export const Hero = () => {
         // Calculate transformations based on scroll progress
         const scale = 1 - (progress * 0.9); // Scale from 1 to 0.1 (more extreme reduction)
         const translateX = progress * -45; // Move to left
-        const translateY = progress * -25; // Reduced vertical movement to keep logo visible
+        const translateY = progress * -15; // Reduced vertical movement to keep logo visible
         const opacity = 1 - progress;
 
         logoRef.current.style.transform = `translate(${translateX}vw, ${translateY}vh) scale(${scale})`;
