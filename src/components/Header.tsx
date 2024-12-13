@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { UserRound } from "lucide-react";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,13 +43,12 @@ export const Header = () => {
         {/* Investor Login */}
         <a
           href="/login"
-          className={`flex items-center gap-2 transition-colors ${
+          className={`transition-colors ${
             isScrolled 
               ? 'text-warrior-dark hover:text-warrior-purple' 
               : 'text-white hover:text-warrior-gray'
           }`}
         >
-          <UserRound size={20} />
           Investor Login
         </a>
       </div>
