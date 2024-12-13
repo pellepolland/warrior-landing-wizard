@@ -3,6 +3,8 @@ import { Mission } from "@/components/Mission";
 import { AboutBlock } from "@/components/AboutBlock";
 import { ExpertiseBlock } from "@/components/ExpertiseBlock";
 import { EthosBlock } from "@/components/EthosBlock";
+import { PurposeBlock } from "@/components/PurposeBlock";
+import { ApproachBlock } from "@/components/ApproachBlock";
 
 const Index = () => {
   return (
@@ -12,6 +14,8 @@ const Index = () => {
       <AboutBlock />
       <ExpertiseBlock />
       <EthosBlock />
+      <PurposeBlock />
+      <ApproachBlock />
     </main>
   );
 };
