@@ -7,8 +7,8 @@ interface LogoOverlayProps {
 
 export const LogoOverlay = ({ whiteLogo, blackLogo, whiteOpacity, blackOpacity }: LogoOverlayProps) => {
   return (
-    <div id="logo-container" className="fixed z-10 w-full max-w-[80vw] mx-auto">
-      <div className="relative">
+    <div id="logo-container" className="fixed inset-0 flex items-center justify-center z-10">
+      <div className="relative w-full max-w-[80vw]">
         <img
           id="white-logo"
           src={whiteLogo}
