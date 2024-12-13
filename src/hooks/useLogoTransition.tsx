@@ -15,6 +15,7 @@ export const useLogoTransition = () => {
         const aboutRect = aboutSection.getBoundingClientRect();
         const missionStart = window.scrollY + missionRect.top;
         const missionEnd = missionStart + missionRect.height;
+        const aboutStart = window.scrollY + aboutRect.top;
         const viewportHeight = window.innerHeight;
         
         // First transition: white to black during mission section
@@ -40,13 +41,17 @@ export const useLogoTransition = () => {
           const startPosition = viewportHeight / 2; // Center of viewport
           const currentPosition = logoContainer.getBoundingClientRect().top;
           
-          // Calculate the target position based on scroll
-          const scrollProgress = Math.max(0, Math.min(1, (scrollPosition - missionEnd) / (viewportHeight / 2)));
+          // Calculate the distance to About section
+          const distanceToAbout = aboutStart - scrollPosition - distanceToTop - 40; // Added 40px buffer
+          
+          // Calculate the target position based on scroll, but limit it based on About section
+          const availableScrollSpace = aboutStart - missionEnd - viewportHeight / 2;
+          const scrollProgress = Math.max(0, Math.min(1, (scrollPosition - missionEnd) / availableScrollSpace));
           const targetTop = startPosition - (startPosition - distanceToTop) * scrollProgress;
           
-          if (currentPosition <= distanceToTop) {
-            // When reaching the top position, fix it and start fading
-            const fadeProgress = 1 - (currentPosition / distanceToTop);
+          if (distanceToAbout <= 0) {
+            // When close to About section, start fading out
+            const fadeProgress = Math.min(1, Math.abs(distanceToAbout) / 100);
             blackOpacity = Math.max(0, 1 - fadeProgress);
             
             logoContainer.style.position = 'fixed';
