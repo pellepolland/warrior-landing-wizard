@@ -80,7 +80,7 @@ export const Footer = () => {
           {/* Social */}
           <div>
             <h3 className="font-semibold mb-6 text-sm normal-case">Find us on</h3>
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-2">
               <a 
                 href="https://www.instagram.com/warrior_capital" 
                 target="_blank" 
