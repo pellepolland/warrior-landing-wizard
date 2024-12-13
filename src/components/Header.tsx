@@ -30,11 +30,13 @@ export const Header = () => {
         {/* Logo */}
         <a 
           href="/" 
-          className={`font-semibold text-xl transition-colors ${
-            isScrolled ? 'text-warrior-dark' : 'text-white'
-          }`}
+          className={`transition-colors`}
         >
-          WARRIOR
+          <img 
+            src="/lovable-uploads/7611d285-1ab8-40e9-b8c1-c4ca9ddd53b8.png"
+            alt="Warrior Capital"
+            className="h-8 w-auto"
+          />
         </a>
 
         {/* Investor Login */}
