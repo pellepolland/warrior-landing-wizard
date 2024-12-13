@@ -41,9 +41,11 @@ export const useLogoTransition = () => {
         // Second transition: black to transparent approaching about section
         if (scrollPosition >= missionEnd) {
           const fadeOutDistance = aboutStart - missionEnd;
-          const fadeOutProgress = (scrollPosition - missionEnd) / fadeOutDistance;
-          // Adjusted the fade out calculation to be more gradual
-          blackOpacity = Math.max(0, 1 - (fadeOutProgress * 1.5)); // Slowed down the fade out
+          // Start the fade out earlier and make it more gradual
+          const fadeOutProgress = Math.max(0, Math.min(1, (scrollPosition - missionEnd) / fadeOutDistance));
+          // Use easeOutCubic function for smoother transition
+          const easeOutCubic = 1 - Math.pow(1 - fadeOutProgress, 3);
+          blackOpacity = Math.max(0, 1 - easeOutCubic);
         }
         
         setOpacities({ white: whiteOpacity, black: blackOpacity });
