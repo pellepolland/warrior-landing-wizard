@@ -4,9 +4,9 @@
 
 @layer base {
   @font-face {
-    font-family: 'YourCustomFont';
-    src: url('/fonts/your-font.woff2') format('woff2'),
-         url('/fonts/your-font.woff') format('woff');
+    font-family: 'Recital';
+    src: url('/fonts/Recital.woff2') format('woff2'),
+         url('/fonts/Recital.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -18,7 +18,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'YourCustomFont', system-ui, sans-serif;
+    font-family: 'Recital', system-ui, sans-serif;
   }
 }
 

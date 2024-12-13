@@ -25,7 +25,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        custom: ['YourCustomFont', 'system-ui', 'sans-serif'],
+        custom: ['Recital', 'system-ui', 'sans-serif'],
       },
       colors: {
         warrior: {
