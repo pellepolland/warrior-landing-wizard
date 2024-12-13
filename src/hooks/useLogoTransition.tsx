@@ -28,8 +28,8 @@ export const useLogoTransition = () => {
         }
 
         // Position and fade handling
-        if (scrollPosition <= missionEnd) {
-          // Keep logo centered until end of mission section
+        if (scrollPosition <= missionEnd - viewportHeight * 0.4) { // Adjusted timing to start transition earlier
+          // Keep logo centered until earlier in the scroll
           logoContainer.style.position = 'fixed';
           logoContainer.style.top = '50%';
           logoContainer.style.left = '50%';
@@ -38,15 +38,18 @@ export const useLogoTransition = () => {
           // Calculate progress for the transition from center to top
           const distanceToTop = 32; // 2rem = 32px (final top position)
           const startPosition = viewportHeight / 2; // Center of viewport
-          const currentPosition = logoContainer.getBoundingClientRect().top;
+          const transitionDistance = startPosition - distanceToTop;
           
-          // Calculate the target position based on scroll
-          const scrollProgress = Math.max(0, Math.min(1, (scrollPosition - missionEnd) / (viewportHeight / 2)));
-          const targetTop = startPosition - (startPosition - distanceToTop) * scrollProgress;
+          // Adjusted transition timing
+          const scrollProgress = Math.max(0, Math.min(1, 
+            (scrollPosition - (missionEnd - viewportHeight * 0.4)) / (viewportHeight * 0.3)
+          ));
           
-          if (currentPosition <= distanceToTop) {
+          const targetTop = startPosition - (transitionDistance * scrollProgress);
+          
+          if (scrollPosition >= missionEnd - viewportHeight * 0.1) { // Earlier fade out
             // When reaching the top position, fix it and start fading
-            const fadeProgress = 1 - (currentPosition / distanceToTop);
+            const fadeProgress = Math.min(1, (scrollPosition - (missionEnd - viewportHeight * 0.1)) / (viewportHeight * 0.2));
             blackOpacity = Math.max(0, 1 - fadeProgress);
             
             logoContainer.style.position = 'fixed';
