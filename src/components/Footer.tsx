@@ -6,7 +6,12 @@ export const Footer = () => {
     <footer className="bg-black text-white py-24 px-4 animate-fade-up">
       {/* Top section */}
       <div className="container mx-auto mb-32">
-        <p className="text-xl mb-20">
+        <img 
+          src="/lovable-uploads/3bba71e3-b348-449d-8ee0-bf29d669d35e.png" 
+          alt="Warrior Capital"
+          className="mb-8 h-12"
+        />
+        <p className="text-xl">
           Detailed information about Warrior projects is available upon request.
         </p>
       </div>
