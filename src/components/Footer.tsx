@@ -60,18 +60,18 @@ export const Footer = () => {
               rel="noopener noreferrer"
               className="text-warrior-gray hover:text-white transition-colors"
             >
-              <p className="text-sm">103 Portobello Road</p>
-              <p className="text-sm">London W11 2QB</p>
+              <p className="text-xs">103 Portobello Road</p>
+              <p className="text-xs">London W11 2QB</p>
             </a>
           </div>
 
           {/* Contact */}
           <div>
             <h3 className="font-semibold mb-6 text-sm normal-case">Get in touch</h3>
-            <p className="text-warrior-gray text-sm">+44 (0) 207 985 0157</p>
+            <p className="text-warrior-gray text-xs">+44 (0) 207 985 0157</p>
             <a 
               href="mailto:info@warriorcapital.co.uk" 
-              className="text-warrior-gray hover:text-white transition-colors text-sm"
+              className="text-warrior-gray hover:text-white transition-colors text-xs"
             >
               info@warriorcapital.co.uk
             </a>
@@ -80,12 +80,12 @@ export const Footer = () => {
           {/* Social */}
           <div>
             <h3 className="font-semibold mb-6 text-sm normal-case">Find us on</h3>
-            <div className="space-y-4">
+            <div className="flex flex-col space-y-4">
               <a 
                 href="https://www.instagram.com/warrior_capital" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="block text-warrior-gray hover:text-white transition-colors text-sm"
+                className="text-warrior-gray hover:text-white transition-colors text-xs"
               >
                 Instagram
               </a>
@@ -93,7 +93,7 @@ export const Footer = () => {
                 href="https://uk.linkedin.com/company/warrior-capital1" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="block text-warrior-gray hover:text-white transition-colors text-sm"
+                className="text-warrior-gray hover:text-white transition-colors text-xs"
               >
                 LinkedIn
               </a>
