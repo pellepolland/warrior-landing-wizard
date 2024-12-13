@@ -10,14 +10,14 @@ export const Hero = () => {
           muted
           playsInline
         >
-          <source src="/hero-video.mov" type="video/quicktime" />
+          <source src="/videos/hero-video.mov" type="video/quicktime" />
           Your browser does not support the video tag.
         </video>
         
         {/* PNG overlay */}
         <div className="absolute inset-0">
           <img 
-            src="/overlay.png" 
+            src="/images/overlay.png" 
             alt="Overlay pattern" 
             className="w-full h-full object-cover opacity-30"
           />

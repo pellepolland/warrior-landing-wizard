@@ -38,7 +38,7 @@ export const AboutBlock = () => {
             muted
             playsInline
           >
-            <source src="/about-video.mov" type="video/quicktime" />
+            <source src="/videos/about-video.mov" type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
         </div>
