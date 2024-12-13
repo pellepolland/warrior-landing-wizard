@@ -32,9 +32,6 @@ const Login = () => {
           <h2 className="text-2xl font-semibold text-white mb-2">
             Investor Login
           </h2>
-          <p className="text-warrior-gray">
-            Enter your credentials to access your account
-          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -47,7 +44,7 @@ const Login = () => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="bg-transparent border-warrior-gray text-white"
+              className="bg-transparent border-warrior-gray text-white rounded-none"
               placeholder="Enter your username"
               required
             />
@@ -62,7 +59,7 @@ const Login = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="bg-transparent border-warrior-gray text-white"
+              className="bg-transparent border-warrior-gray text-white rounded-none"
               placeholder="Enter your password"
               required
             />
@@ -70,7 +67,7 @@ const Login = () => {
 
           <Button 
             type="submit"
-            className="w-full bg-warrior-purple hover:bg-warrior-secondary text-white"
+            className="w-full bg-white hover:bg-gray-100 text-black rounded-none"
           >
             Sign In
           </Button>
