@@ -34,7 +34,7 @@ export const Footer = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} className="bg-black text-white py-24 px-4 animate-fade-up uppercase">
+    <footer ref={footerRef} className="bg-black text-white py-24 px-4 animate-fade-up uppercase tracking-widest">
       {/* Top section */}
       <div className="container mx-auto mb-32">
         <img 
@@ -53,7 +53,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Address */}
           <div>
-            <h3 className="font-semibold mb-6 text-sm">Address</h3>
+            <h3 className="font-semibold mb-6 text-sm normal-case">Address</h3>
             <a 
               href="https://maps.app.goo.gl/CJWVFeoxHmA7cGAu8"
               target="_blank"
@@ -67,7 +67,7 @@ export const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-6 text-sm">Get in touch</h3>
+            <h3 className="font-semibold mb-6 text-sm normal-case">Get in touch</h3>
             <p className="text-warrior-gray text-sm">+44 (0) 207 985 0157</p>
             <a 
               href="mailto:info@warriorcapital.co.uk" 
@@ -79,7 +79,7 @@ export const Footer = () => {
 
           {/* Social */}
           <div>
-            <h3 className="font-semibold mb-6 text-sm">Find us on</h3>
+            <h3 className="font-semibold mb-6 text-sm normal-case">Find us on</h3>
             <div className="space-y-4">
               <a 
                 href="https://www.instagram.com/warrior_capital" 
