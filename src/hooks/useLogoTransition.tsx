@@ -15,7 +15,6 @@ export const useLogoTransition = () => {
         const aboutRect = aboutSection.getBoundingClientRect();
         const missionStart = window.scrollY + missionRect.top;
         const missionEnd = missionStart + missionRect.height;
-        const aboutStart = window.scrollY + aboutRect.top;
         const viewportHeight = window.innerHeight;
         
         // First transition: white to black during mission section
@@ -36,25 +35,30 @@ export const useLogoTransition = () => {
           logoContainer.style.left = '50%';
           logoContainer.style.transform = 'translate(-50%, -50%)';
         } else {
-          // After mission section, let the logo scroll with the content
-          const distanceFromTop = logoContainer.getBoundingClientRect().top;
+          // Calculate progress for the transition from center to top
+          const distanceToTop = 32; // 2rem = 32px (final top position)
+          const startPosition = viewportHeight / 2; // Center of viewport
+          const currentPosition = logoContainer.getBoundingClientRect().top;
           
-          if (distanceFromTop <= 32) { // 2rem = 32px
-            // Start fading out when logo approaches top of viewport
-            const fadeProgress = 1 - (distanceFromTop / 32);
+          // Calculate the target position based on scroll
+          const scrollProgress = Math.max(0, Math.min(1, (scrollPosition - missionEnd) / (viewportHeight / 2)));
+          const targetTop = startPosition - (startPosition - distanceToTop) * scrollProgress;
+          
+          if (currentPosition <= distanceToTop) {
+            // When reaching the top position, fix it and start fading
+            const fadeProgress = 1 - (currentPosition / distanceToTop);
             blackOpacity = Math.max(0, 1 - fadeProgress);
             
-            // Fix position at top when fully scrolled up
             logoContainer.style.position = 'fixed';
-            logoContainer.style.top = '2rem';
+            logoContainer.style.top = `${distanceToTop}px`;
             logoContainer.style.left = '50%';
             logoContainer.style.transform = 'translate(-50%, 0)';
           } else {
-            // Let logo scroll naturally with content
-            logoContainer.style.position = 'absolute';
-            logoContainer.style.top = `${missionEnd}px`;
+            // Smooth transition from center to top
+            logoContainer.style.position = 'fixed';
+            logoContainer.style.top = `${targetTop}px`;
             logoContainer.style.left = '50%';
-            logoContainer.style.transform = 'translate(-50%, -50%)';
+            logoContainer.style.transform = `translate(-50%, ${scrollProgress >= 1 ? '0' : '-50%'})`;
           }
         }
         
