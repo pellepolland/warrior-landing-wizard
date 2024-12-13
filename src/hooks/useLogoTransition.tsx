@@ -6,6 +6,7 @@ export const useLogoTransition = () => {
     black: 0,
     overall: 1 
   });
+  const [scale, setScale] = useState(1);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +25,7 @@ export const useLogoTransition = () => {
         let whiteOpacity = 1;
         let blackOpacity = 0;
         let overallOpacity = 1;
+        let currentScale = 1;
         
         if (scrollPosition >= missionStart - viewportHeight * 0.3) {
           const progress = (scrollPosition - (missionStart - viewportHeight * 0.3)) / (missionRect.height * 0.7);
@@ -31,13 +33,16 @@ export const useLogoTransition = () => {
           blackOpacity = Math.min(1, progress * 2);
         }
 
-        // Handle fade out between mission and about sections
+        // Handle size reduction and fade out between mission and about sections
         if (scrollPosition >= missionStart && scrollPosition <= aboutStart) {
           const transitionProgress = (scrollPosition - missionStart) / (aboutStart - missionStart);
+          currentScale = Math.max(0.1, 1 - (transitionProgress * 0.9)); // Scale down to 10%
           overallOpacity = Math.max(0, 1 - transitionProgress);
         } else if (scrollPosition < missionStart) {
+          currentScale = 1;
           overallOpacity = 1;
         } else if (scrollPosition > aboutStart) {
+          currentScale = 0.1;
           overallOpacity = 0;
         }
         
@@ -46,6 +51,7 @@ export const useLogoTransition = () => {
           black: blackOpacity,
           overall: overallOpacity 
         });
+        setScale(currentScale);
       }
     };
 
@@ -55,5 +61,5 @@ export const useLogoTransition = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return { ...opacities };
+  return { ...opacities, scale };
 };
