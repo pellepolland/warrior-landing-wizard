@@ -54,27 +54,31 @@ export const Footer = () => {
           {/* Address */}
           <div>
             <h3 className="font-semibold mb-6 text-sm normal-case">Address</h3>
-            <a 
-              href="https://maps.app.goo.gl/CJWVFeoxHmA7cGAu8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-warrior-gray hover:text-white transition-colors"
-            >
-              <p className="text-xs">103 Portobello Road</p>
-              <p className="text-xs">London W11 2QB</p>
-            </a>
+            <div className="flex flex-col space-y-2">
+              <a 
+                href="https://maps.app.goo.gl/CJWVFeoxHmA7cGAu8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-warrior-gray hover:text-white transition-colors"
+              >
+                <p className="text-xs">103 Portobello Road</p>
+                <p className="text-xs">London W11 2QB</p>
+              </a>
+            </div>
           </div>
 
           {/* Contact */}
           <div>
             <h3 className="font-semibold mb-6 text-sm normal-case">Get in touch</h3>
-            <p className="text-warrior-gray text-xs">+44 (0) 207 985 0157</p>
-            <a 
-              href="mailto:info@warriorcapital.co.uk" 
-              className="text-warrior-gray hover:text-white transition-colors text-xs"
-            >
-              info@warriorcapital.co.uk
-            </a>
+            <div className="flex flex-col space-y-2">
+              <p className="text-warrior-gray text-xs">+44 (0) 207 985 0157</p>
+              <a 
+                href="mailto:info@warriorcapital.co.uk" 
+                className="text-warrior-gray hover:text-white transition-colors text-xs"
+              >
+                info@warriorcapital.co.uk
+              </a>
+            </div>
           </div>
 
           {/* Social */}
