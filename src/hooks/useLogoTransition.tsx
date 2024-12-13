@@ -37,8 +37,8 @@ export const useLogoTransition = () => {
         if (scrollPosition >= missionStart && scrollPosition <= aboutStart) {
           const transitionProgress = (scrollPosition - missionStart) / (aboutStart - missionStart);
           // More aggressive scale reduction
-          currentScale = Math.max(0.1, 1 - (Math.pow(transitionProgress, 0.7) * 0.9)); // Using power function for more aggressive early movement
-          overallOpacity = Math.max(0, 1 - Math.pow(transitionProgress, 0.7)); // Match the opacity transition to the scale
+          currentScale = Math.max(0.1, 1 - (Math.pow(transitionProgress, 0.5) * 0.9)); // Using power function for more aggressive early movement
+          overallOpacity = Math.max(0, 1 - Math.pow(transitionProgress, 0.5)); // Match the opacity transition to the scale
         } else if (scrollPosition < missionStart) {
           currentScale = 1;
           overallOpacity = 1;

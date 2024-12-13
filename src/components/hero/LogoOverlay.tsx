@@ -17,15 +17,14 @@ export const LogoOverlay = ({
 }: LogoOverlayProps) => {
   // Calculate position based on scale to match header padding (px-4)
   const translateX = `calc(${(1 - scale) * -50}% + ${(1 - scale) * 16}px)`;
-  const translateY = `calc(${(1 - scale) * -50}% + ${(1 - scale) * 16}px)`;
 
   return (
-    <div id="logo-container" className="fixed inset-0 flex items-center justify-center z-10">
+    <div id="logo-container" className="fixed inset-0 flex items-start pt-4 justify-center z-10">
       <div 
         className="relative w-full max-w-[80vw]"
         style={{ 
           opacity: overall,
-          transform: `translate(${translateX}, ${translateY}) scale(${scale})`,
+          transform: `translateX(${translateX}) scale(${scale})`,
           transition: 'transform 0.1s linear, opacity 0.1s linear',
           transformOrigin: 'top left'
         }}
