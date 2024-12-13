@@ -13,6 +13,6 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Recital', system-ui, sans-serif;
+    font-family: 'Helvetica', system-ui, sans-serif;
   }
 }
