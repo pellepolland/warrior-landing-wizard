@@ -48,14 +48,25 @@ export const Hero = () => {
         }
         
         // Calculate opacity based on position within mission section, starting earlier
-        let opacity = 1;
-        if (scrollPosition >= missionStart - window.innerHeight * 0.3) { // Start fade earlier
-          const progress = (scrollPosition - (missionStart - window.innerHeight * 0.3)) / (missionRect.height * 0.7); // Adjust fade duration
-          opacity = Math.max(0, 1 - progress * 2);
+        let whiteOpacity = 1;
+        let blackOpacity = 0;
+        
+        // First transition: white to black
+        if (scrollPosition >= missionStart - window.innerHeight * 0.3) {
+          const progress = (scrollPosition - (missionStart - window.innerHeight * 0.3)) / (missionRect.height * 0.7);
+          whiteOpacity = Math.max(0, 1 - progress * 2);
+          blackOpacity = Math.min(1, progress * 2);
         }
         
-        whiteLogoElement.style.opacity = opacity.toString();
-        blackLogoElement.style.opacity = (1 - opacity).toString();
+        // Second transition: black to transparent
+        if (scrollPosition >= missionEnd) {
+          const fadeOutDistance = window.innerHeight; // Distance over which the black logo fades out
+          const fadeOutProgress = Math.min(1, (scrollPosition - missionEnd) / fadeOutDistance);
+          blackOpacity = Math.max(0, 1 - fadeOutProgress);
+        }
+        
+        whiteLogoElement.style.opacity = whiteOpacity.toString();
+        blackLogoElement.style.opacity = blackOpacity.toString();
       }
     };
 
