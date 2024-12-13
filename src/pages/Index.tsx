@@ -15,17 +15,19 @@ const Index = () => {
     <main className="overflow-hidden">
       <Header />
       <Hero />
-      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
-        <Mission />
-        <AboutBlock />
-        <ExpertiseBlock />
-        <EthosBlock />
-        <PurposeBlock />
-        <ApproachBlock />
-        <ValueBlock />
-        <InvestmentBlock />
+      <div className="relative z-10 bg-white">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <Mission />
+          <AboutBlock />
+          <ExpertiseBlock />
+          <EthosBlock />
+          <PurposeBlock />
+          <ApproachBlock />
+          <ValueBlock />
+          <InvestmentBlock />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </main>
   );
 };

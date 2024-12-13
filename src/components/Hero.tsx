@@ -5,13 +5,12 @@ export const Hero = () => {
 
   useEffect(() => {
     const options = {
-      threshold: Array.from({ length: 100 }, (_, i) => i / 100), // Create thresholds for smooth transition
+      threshold: Array.from({ length: 100 }, (_, i) => i / 100),
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (videoContainerRef.current) {
-          // Calculate opacity based on intersection ratio
           const opacity = entry.intersectionRatio;
           videoContainerRef.current.style.opacity = opacity.toString();
         }
@@ -30,11 +29,11 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4">
-      {/* Video background */}
+    <section className="relative min-h-screen flex items-center justify-center">
       <div 
         ref={videoContainerRef}
-        className="absolute inset-0 z-0 transition-opacity duration-300"
+        className="fixed inset-0 z-0 transition-opacity duration-300"
+        style={{ willChange: 'opacity' }}
       >
         <video
           className="w-full h-full object-cover"
