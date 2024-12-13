@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { UserRound } from "lucide-react";
 
 export const Header = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -10,7 +10,7 @@ export const Header = () => {
       if (heroSection) {
         const heroHeight = heroSection.offsetHeight;
         const scrollPosition = window.scrollY;
-        setIsVisible(scrollPosition > heroHeight - 100);
+        setIsScrolled(scrollPosition > heroHeight - 100);
       }
     };
 
@@ -20,20 +20,31 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/90 backdrop-blur-sm shadow-sm' 
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <a href="/" className="text-warrior-dark font-semibold text-xl">
+        <a 
+          href="/" 
+          className={`font-semibold text-xl transition-colors ${
+            isScrolled ? 'text-warrior-dark' : 'text-white'
+          }`}
+        >
           WARRIOR
         </a>
 
         {/* Investor Login */}
         <a
           href="/login"
-          className="flex items-center gap-2 text-warrior-dark hover:text-warrior-purple transition-colors"
+          className={`flex items-center gap-2 transition-colors ${
+            isScrolled 
+              ? 'text-warrior-dark hover:text-warrior-purple' 
+              : 'text-white hover:text-warrior-gray'
+          }`}
         >
           <UserRound size={20} />
           Investor Login
