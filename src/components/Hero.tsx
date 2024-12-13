@@ -4,25 +4,37 @@ export const Hero = () => {
   const videoContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (videoContainerRef.current) {
-        const scrollPosition = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const opacity = Math.max(0, 1 - (scrollPosition / windowHeight));
-        videoContainerRef.current.style.opacity = opacity.toString();
-      }
+    const options = {
+      threshold: Array.from({ length: 100 }, (_, i) => i / 100), // Create thresholds for smooth transition
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (videoContainerRef.current) {
+          // Calculate opacity based on intersection ratio
+          const opacity = entry.intersectionRatio;
+          videoContainerRef.current.style.opacity = opacity.toString();
+        }
+      });
+    }, options);
+
+    if (videoContainerRef.current) {
+      observer.observe(videoContainerRef.current);
+    }
+
+    return () => {
+      if (videoContainerRef.current) {
+        observer.unobserve(videoContainerRef.current);
+      }
+    };
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center">
+    <section className="relative min-h-screen flex items-center justify-center px-4">
+      {/* Video background */}
       <div 
         ref={videoContainerRef}
-        className="fixed inset-0 z-0 transition-opacity duration-300"
-        style={{ willChange: 'opacity' }}
+        className="absolute inset-0 z-0 transition-opacity duration-300"
       >
         <video
           className="w-full h-full object-cover"
