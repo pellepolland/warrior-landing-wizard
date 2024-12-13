@@ -5,7 +5,7 @@ export const EthosBlock = () => {
         {/* Video content */}
         <div className="relative h-[400px] md:h-full animate-fade-up">
           <video
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover"
             autoPlay
             loop
             muted
