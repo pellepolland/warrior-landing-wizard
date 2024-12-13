@@ -28,29 +28,32 @@ export const useLogoTransition = () => {
         }
 
         // Position handling
-        if (scrollPosition <= missionEnd - viewportHeight * 0.4) {
-          // Keep logo centered
+        const transitionStartPoint = missionEnd - viewportHeight * 0.4;
+        const transitionEndPoint = missionEnd;
+        
+        if (scrollPosition <= transitionStartPoint) {
+          // Keep centered
           logoContainer.style.position = 'fixed';
           logoContainer.style.top = '50%';
           logoContainer.style.left = '50%';
           logoContainer.style.transform = 'translate(-50%, -50%)';
-        } else {
-          const distanceToTop = 32; // Final top position (2rem)
-          const startPosition = viewportHeight / 2; // Starting from center
-          
-          // Calculate the scroll progress
-          const scrollProgress = Math.max(0, Math.min(1, 
-            (scrollPosition - (missionEnd - viewportHeight * 0.4)) / (viewportHeight * 0.3)
-          ));
-          
-          // Calculate the current position based on scroll progress
-          const currentTop = startPosition - ((startPosition - distanceToTop) * scrollProgress);
-          
-          // Apply the position
+        } else if (scrollPosition >= transitionEndPoint) {
+          // Lock to final position
           logoContainer.style.position = 'fixed';
-          logoContainer.style.top = `${currentTop}px`;
+          logoContainer.style.top = '32px';
           logoContainer.style.left = '50%';
-          logoContainer.style.transform = `translate(-50%, ${scrollProgress >= 1 ? '0' : '-50%'})`;
+          logoContainer.style.transform = 'translate(-50%, 0)';
+        } else {
+          // Smooth transition based on scroll position
+          const progress = (scrollPosition - transitionStartPoint) / (transitionEndPoint - transitionStartPoint);
+          const startY = viewportHeight / 2;
+          const endY = 32;
+          const currentY = startY - (progress * (startY - endY));
+          
+          logoContainer.style.position = 'fixed';
+          logoContainer.style.top = `${currentY}px`;
+          logoContainer.style.left = '50%';
+          logoContainer.style.transform = 'translate(-50%, -50%)';
         }
         
         setOpacities({ white: whiteOpacity, black: blackOpacity });
