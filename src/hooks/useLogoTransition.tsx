@@ -38,15 +38,15 @@ export const useLogoTransition = () => {
           // Calculate progress for the transition from center to top
           const distanceToTop = 32; // 2rem = 32px (final top position)
           const startPosition = viewportHeight / 2; // Center of viewport
-          const currentPosition = logoContainer.getBoundingClientRect().top;
+          const transitionDistance = aboutRect.top - distanceToTop; // Distance to travel before about section
           
           // Calculate the target position based on scroll
           const scrollProgress = Math.max(0, Math.min(1, (scrollPosition - missionEnd) / (viewportHeight / 2)));
           const targetTop = startPosition - (startPosition - distanceToTop) * scrollProgress;
           
-          if (currentPosition <= distanceToTop) {
-            // When reaching the top position, fix it and start fading
-            const fadeProgress = 1 - (currentPosition / distanceToTop);
+          if (aboutRect.top <= viewportHeight * 0.2) {
+            // When approaching the about section, fade out the black logo
+            const fadeProgress = 1 - (aboutRect.top / (viewportHeight * 0.2));
             blackOpacity = Math.max(0, 1 - fadeProgress);
             
             logoContainer.style.position = 'fixed';
