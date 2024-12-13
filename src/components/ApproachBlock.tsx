@@ -29,7 +29,7 @@ export const ApproachBlock = () => {
             muted
             playsInline
           >
-            <source src="https://warrior-capital.s3.eu-west-2.amazonaws.com/approach.mov" type="video/quicktime" />
+            <source src="/videos/approach-video.mov" type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
         </div>
