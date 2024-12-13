@@ -16,6 +16,7 @@ export const useLogoTransition = () => {
         const missionStart = window.scrollY + missionRect.top;
         const missionEnd = missionStart + missionRect.height;
         const viewportHeight = window.innerHeight;
+        const logoHeight = logoContainer.offsetHeight;
         
         // First transition: white to black during mission section
         let whiteOpacity = 1;
@@ -28,8 +29,9 @@ export const useLogoTransition = () => {
         }
 
         // Position handling
-        const transitionStartPoint = missionEnd - viewportHeight * 0.4;
-        const transitionEndPoint = missionEnd;
+        // Start transition when logo is fully visible and end before it hits the top
+        const transitionStartPoint = missionEnd - viewportHeight * 0.8;
+        const transitionEndPoint = missionEnd - logoHeight - 32; // 32px is the final top position
         
         if (scrollPosition <= transitionStartPoint) {
           // Keep centered
