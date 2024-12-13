@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Recital';
+  src: url('./fonts/Recital-Regular.otf') format('opentype');
+}
+
 #root {
   margin: 0 auto;
   text-align: center;
@@ -37,4 +42,7 @@
 
 .read-the-docs {
   color: #888;
+}
+body {
+  font-family: 'Recital', sans-serif;
 }
