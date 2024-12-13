@@ -35,7 +35,9 @@ export const useLogoTransition = () => {
 
         // Handle size reduction and fade out between mission and about sections
         if (scrollPosition >= missionStart && scrollPosition <= aboutStart) {
-          const transitionProgress = (scrollPosition - missionStart) / (aboutStart - missionStart);
+          // Adjust the transition to complete when logo reaches top of viewport
+          const transitionDistance = aboutStart - missionStart - viewportHeight;
+          const transitionProgress = Math.max(0, Math.min(1, (scrollPosition - missionStart) / transitionDistance));
           currentScale = Math.max(0.1, 1 - (transitionProgress * 0.9)); // Scale down to 10%
           overallOpacity = Math.max(0, 1 - transitionProgress);
         } else if (scrollPosition < missionStart) {
