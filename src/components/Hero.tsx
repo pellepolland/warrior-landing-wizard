@@ -28,29 +28,30 @@ export const Hero = () => {
       const whiteLogoElement = document.getElementById('white-logo');
       const blackLogoElement = document.getElementById('black-logo');
       const logoContainer = document.getElementById('logo-container');
+      const missionSection = document.querySelector('.mission-section');
       
-      if (whiteLogoElement && blackLogoElement && logoContainer) {
+      if (whiteLogoElement && blackLogoElement && logoContainer && missionSection) {
         const scrollPosition = window.scrollY;
-        const secondBlockEnd = window.innerHeight * 2; // End of second block
+        const missionRect = missionSection.getBoundingClientRect();
+        const missionStart = window.scrollY + missionRect.top;
+        const missionEnd = missionStart + missionRect.height;
         
-        // Keep the logo container fixed until the end of the second block
-        if (scrollPosition <= secondBlockEnd) {
+        // Keep the logo container fixed until the end of the mission section
+        if (scrollPosition <= missionEnd) {
           logoContainer.style.position = 'fixed';
           logoContainer.style.top = '50%';
           logoContainer.style.left = '50%';
           logoContainer.style.transform = 'translate(-50%, -50%)';
         } else {
           logoContainer.style.position = 'absolute';
-          logoContainer.style.top = `${secondBlockEnd}px`;
+          logoContainer.style.top = `${missionEnd}px`;
         }
         
-        // Calculate opacity based on scroll position
-        const fadeStart = window.innerHeight; // Start fade at first block end
-        const fadeDistance = window.innerHeight * 0.5; // Distance over which fade occurs
-        
+        // Calculate opacity based on position within mission section
         let opacity = 1;
-        if (scrollPosition > fadeStart) {
-          opacity = Math.max(0, 1 - (scrollPosition - fadeStart) / fadeDistance);
+        if (scrollPosition >= missionStart) {
+          const progress = (scrollPosition - missionStart) / missionRect.height;
+          opacity = Math.max(0, 1 - progress * 2); // Multiply by 2 to complete fade by middle of section
         }
         
         whiteLogoElement.style.opacity = opacity.toString();
