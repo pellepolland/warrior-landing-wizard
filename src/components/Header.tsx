@@ -5,11 +5,12 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.querySelector('section');
-      if (heroSection) {
-        const heroHeight = heroSection.offsetHeight;
+      const aboutSection = document.querySelector('.about-section');
+      if (aboutSection) {
+        const aboutRect = aboutSection.getBoundingClientRect();
         const scrollPosition = window.scrollY;
-        setIsScrolled(scrollPosition > heroHeight - 100);
+        const aboutStart = scrollPosition + aboutRect.top;
+        setIsScrolled(scrollPosition > aboutStart - 100);
       }
     };
 
