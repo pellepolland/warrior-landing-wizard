@@ -35,27 +35,24 @@ export const useLogoTransition = () => {
           logoContainer.style.top = '50%';
           logoContainer.style.left = '50%';
           logoContainer.style.transform = 'translate(-50%, -50%)';
-        } else if (scrollPosition > missionEnd && scrollPosition < aboutStart - viewportHeight) {
-          // Fix logo in place after mission section
-          logoContainer.style.position = 'absolute';
-          logoContainer.style.top = `${missionEnd}px`;
-          logoContainer.style.left = '50%';
-          logoContainer.style.transform = 'translate(-50%, -50%)';
-        } else if (scrollPosition >= aboutStart - viewportHeight) {
-          // Start fading out black logo as it approaches viewport top
-          const fadeDistance = viewportHeight;
-          const fadeProgress = (scrollPosition - (aboutStart - viewportHeight)) / fadeDistance;
-          blackOpacity = Math.max(0, 1 - fadeProgress);
+        } else {
+          // After mission section, let the logo scroll with the content
+          const distanceFromTop = logoContainer.getBoundingClientRect().top;
           
-          // Position logo fixed at top when reaching that point
-          if (fadeProgress >= 0.5) {
+          if (distanceFromTop <= 32) { // 2rem = 32px
+            // Start fading out when logo approaches top of viewport
+            const fadeProgress = 1 - (distanceFromTop / 32);
+            blackOpacity = Math.max(0, 1 - fadeProgress);
+            
+            // Fix position at top when fully scrolled up
             logoContainer.style.position = 'fixed';
             logoContainer.style.top = '2rem';
             logoContainer.style.left = '50%';
             logoContainer.style.transform = 'translate(-50%, 0)';
           } else {
+            // Let logo scroll naturally with content
             logoContainer.style.position = 'absolute';
-            logoContainer.style.top = `${aboutStart - viewportHeight}px`;
+            logoContainer.style.top = `${missionEnd}px`;
             logoContainer.style.left = '50%';
             logoContainer.style.transform = 'translate(-50%, -50%)';
           }
