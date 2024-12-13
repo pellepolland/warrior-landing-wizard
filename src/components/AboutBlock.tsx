@@ -1,6 +1,6 @@
 export const AboutBlock = () => {
   return (
-    <section className="min-h-screen flex items-center">
+    <section className="min-h-screen flex items-center about-section">
       <div className="w-full grid md:grid-cols-2 gap-12">
         {/* Text content */}
         <div className="flex flex-col justify-center animate-fade-up px-4 sm:px-6 lg:px-8 xl:px-12">
