@@ -47,11 +47,11 @@ export const Hero = () => {
           logoContainer.style.top = `${missionEnd}px`;
         }
         
-        // Calculate opacity based on position within mission section
+        // Calculate opacity based on position within mission section, starting earlier
         let opacity = 1;
-        if (scrollPosition >= missionStart) {
-          const progress = (scrollPosition - missionStart) / missionRect.height;
-          opacity = Math.max(0, 1 - progress * 2); // Multiply by 2 to complete fade by middle of section
+        if (scrollPosition >= missionStart - window.innerHeight * 0.3) { // Start fade earlier
+          const progress = (scrollPosition - (missionStart - window.innerHeight * 0.3)) / (missionRect.height * 0.7); // Adjust fade duration
+          opacity = Math.max(0, 1 - progress * 2);
         }
         
         whiteLogoElement.style.opacity = opacity.toString();
