@@ -11,7 +11,7 @@ export const EthosBlock = () => {
             muted
             playsInline
           >
-            <source src="/ethos-video.mov" type="video/quicktime" />
+            <source src="/videos/ethos-video.mov" type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
         </div>
