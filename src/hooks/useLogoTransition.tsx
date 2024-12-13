@@ -9,11 +9,14 @@ export const useLogoTransition = () => {
   useEffect(() => {
     const handleScroll = () => {
       const missionSection = document.querySelector('.mission-section');
+      const aboutSection = document.querySelector('.about-section');
       
-      if (missionSection) {
+      if (missionSection && aboutSection) {
         const scrollPosition = window.scrollY;
         const missionRect = missionSection.getBoundingClientRect();
+        const aboutRect = aboutSection.getBoundingClientRect();
         const missionStart = window.scrollY + missionRect.top;
+        const aboutStart = window.scrollY + aboutRect.top;
         const viewportHeight = window.innerHeight;
         
         // Handle white to black transition during mission section
@@ -25,6 +28,14 @@ export const useLogoTransition = () => {
           whiteOpacity = Math.max(0, 1 - progress * 2);
           blackOpacity = Math.min(1, progress * 2);
         }
+
+        // Handle fade out before about section
+        if (scrollPosition >= aboutStart - viewportHeight * 0.5) {
+          const fadeOutProgress = (scrollPosition - (aboutStart - viewportHeight * 0.5)) / (viewportHeight * 0.3);
+          const fadeOutFactor = Math.max(0, 1 - fadeOutProgress);
+          whiteOpacity *= fadeOutFactor;
+          blackOpacity *= fadeOutFactor;
+        }
         
         setOpacities({ 
           white: whiteOpacity, 
@@ -35,7 +46,7 @@ export const useLogoTransition = () => {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll();
-
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
