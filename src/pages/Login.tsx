@@ -25,7 +25,7 @@ const Login = () => {
       <Button
         variant="ghost"
         onClick={() => navigate("/")}
-        className="absolute top-4 left-4 text-white hover:bg-[#000000]/10 rounded-none"
+        className="absolute top-4 left-4 text-white hover:underline hover:bg-transparent rounded-none"
       >
         <ChevronLeft className="mr-2" />
         Back
