@@ -5,13 +5,12 @@ export const Hero = () => {
 
   useEffect(() => {
     const options = {
-      threshold: Array.from({ length: 100 }, (_, i) => i / 100), // Create thresholds for smooth transition
+      threshold: Array.from({ length: 100 }, (_, i) => i / 100),
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (videoContainerRef.current) {
-          // Calculate opacity based on intersection ratio
           const opacity = entry.intersectionRatio;
           videoContainerRef.current.style.opacity = opacity.toString();
         }
@@ -49,6 +48,15 @@ export const Hero = () => {
           />
           Your browser does not support the video tag.
         </video>
+      </div>
+
+      {/* Logo overlay */}
+      <div className="relative z-10 w-full max-w-[400px] mx-auto">
+        <img
+          src="/lovable-uploads/7f78581e-ed7d-4d54-8424-08e21e04f672.png"
+          alt="Warrior Capital Logo"
+          className="w-full h-auto"
+        />
       </div>
     </section>
   );
