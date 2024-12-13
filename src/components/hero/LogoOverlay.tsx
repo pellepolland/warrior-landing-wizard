@@ -15,14 +15,19 @@ export const LogoOverlay = ({
   overall,
   scale 
 }: LogoOverlayProps) => {
+  // Calculate position based on scale
+  const translateX = `${(1 - scale) * -50}%`;
+  const translateY = `${(1 - scale) * -50}%`;
+
   return (
     <div id="logo-container" className="fixed inset-0 flex items-center justify-center z-10">
       <div 
         className="relative w-full max-w-[80vw]"
         style={{ 
           opacity: overall,
-          transform: `scale(${scale})`,
-          transition: 'transform 0.1s linear, opacity 0.1s linear'
+          transform: `translate(${translateX}, ${translateY}) scale(${scale})`,
+          transition: 'transform 0.1s linear, opacity 0.1s linear',
+          transformOrigin: 'top left'
         }}
       >
         <img
