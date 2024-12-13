@@ -11,7 +11,7 @@ export const InvestmentBlock = () => {
             muted
             playsInline
           >
-            <source src="/videos/investment-video.mov" type="video/quicktime" />
+            <source src="https://cdn.prod.website-files.com/670fe89eb5229a7ce7da32e2%2F6729eec10fde63d85c7f3a53_166%20Vignette-transcode.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
