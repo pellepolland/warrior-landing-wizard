@@ -3,11 +3,11 @@ export const AboutBlock = () => {
     <section className="min-h-screen flex items-center about-section">
       <div className="w-full grid md:grid-cols-2 gap-12">
         {/* Text content */}
-        <div className="flex flex-col justify-center animate-fade-up px-4 sm:px-6 lg:px-8 xl:px-12">
-          <h2 className="text-xl md:text-2xl font-bold mb-6 text-warrior-dark">
+        <div className="flex flex-col justify-center animate-fade-up px-8 sm:px-12 lg:px-16 xl:px-20">
+          <h2 className="text-xl md:text-2xl font-bold mb-8 text-warrior-dark">
             ABOUT US
           </h2>
-          <div className="space-y-6 text-gray-600 text-sm md:text-base">
+          <div className="space-y-8 text-gray-600 text-sm md:text-base">
             <p>
               Warrior is a boutique, Notting Hill-based property investment and development business, 
               born from the legacy of a London real estate-centric family office. Acting as a trusted 

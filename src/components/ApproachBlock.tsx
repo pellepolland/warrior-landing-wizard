@@ -3,11 +3,11 @@ export const ApproachBlock = () => {
     <section className="min-h-screen flex items-center">
       <div className="container mx-auto grid md:grid-cols-2 gap-12 px-4">
         {/* Text content */}
-        <div className="flex flex-col justify-center animate-fade-up">
-          <h2 className="text-xl md:text-2xl font-bold mb-6 text-warrior-dark">
+        <div className="flex flex-col justify-center animate-fade-up px-8 sm:px-12 lg:px-16 xl:px-20">
+          <h2 className="text-xl md:text-2xl font-bold mb-8 text-warrior-dark">
             APPROACH
           </h2>
-          <div className="space-y-6 text-gray-600 text-sm md:text-base">
+          <div className="space-y-8 text-gray-600 text-sm md:text-base">
             <p>
               Our process spans the entire investment cycle—from acquisition and feasibility to financing, planning, construction, and asset management. Every stage is interconnected; each decision shapes and defines the project's success.
             </p>
