@@ -1,7 +1,7 @@
 export const InvestmentBlock = () => {
   return (
     <section className="min-h-screen flex items-center">
-      <div className="container mx-auto grid md:grid-cols-2 gap-24 px-4">
+      <div className="container mx-auto grid md:grid-cols-2 gap-12 px-4">
         {/* Video content */}
         <div className="relative h-[400px] md:h-full animate-fade-up">
           <video
