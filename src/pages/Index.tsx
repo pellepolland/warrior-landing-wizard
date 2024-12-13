@@ -5,6 +5,8 @@ import { ExpertiseBlock } from "@/components/ExpertiseBlock";
 import { EthosBlock } from "@/components/EthosBlock";
 import { PurposeBlock } from "@/components/PurposeBlock";
 import { ApproachBlock } from "@/components/ApproachBlock";
+import { ValueBlock } from "@/components/ValueBlock";
+import { InvestmentBlock } from "@/components/InvestmentBlock";
 
 const Index = () => {
   return (
@@ -16,6 +18,8 @@ const Index = () => {
       <EthosBlock />
       <PurposeBlock />
       <ApproachBlock />
+      <ValueBlock />
+      <InvestmentBlock />
     </main>
   );
 };
