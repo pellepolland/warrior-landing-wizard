@@ -4,7 +4,6 @@ interface LogoOverlayProps {
   whiteOpacity: number;
   blackOpacity: number;
   overall: number;
-  scale: number;
 }
 
 export const LogoOverlay = ({ 
@@ -12,22 +11,15 @@ export const LogoOverlay = ({
   blackLogo, 
   whiteOpacity, 
   blackOpacity,
-  overall,
-  scale 
+  overall
 }: LogoOverlayProps) => {
-  // Calculate position based on scale
-  const translateX = `${(1 - scale) * -50}%`;
-  const translateY = `${(1 - scale) * -50}%`;
-
   return (
     <div id="logo-container" className="fixed inset-0 flex items-center justify-center z-10">
       <div 
         className="relative w-full max-w-[80vw]"
         style={{ 
           opacity: overall,
-          transform: `translate(${translateX}, ${translateY}) scale(${scale})`,
-          transition: 'transform 0.1s linear, opacity 0.1s linear',
-          transformOrigin: 'top left'
+          transition: 'opacity 0.1s linear'
         }}
       >
         <img
