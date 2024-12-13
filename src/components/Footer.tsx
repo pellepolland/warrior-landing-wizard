@@ -1,6 +1,7 @@
-import { Instagram, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import { FooterAddress } from "./footer/FooterAddress";
+import { FooterContact } from "./footer/FooterContact";
+import { FooterSocial } from "./footer/FooterSocial";
 
 export const Footer = () => {
   const footerRef = useRef<HTMLElement>(null);
@@ -51,58 +52,9 @@ export const Footer = () => {
       {/* Bottom section */}
       <div className="container mx-auto mt-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Address */}
-          <div>
-            <h3 className="font-semibold mb-6 text-sm normal-case">Address</h3>
-            <div className="flex flex-col space-y-2">
-              <a 
-                href="https://maps.app.goo.gl/CJWVFeoxHmA7cGAu8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-warrior-gray hover:text-white transition-colors"
-              >
-                <p className="text-xs">103 Portobello Road</p>
-                <p className="text-xs">London W11 2QB</p>
-              </a>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-semibold mb-6 text-sm normal-case">Get in touch</h3>
-            <div className="flex flex-col space-y-2">
-              <p className="text-warrior-gray text-xs">+44 (0) 207 985 0157</p>
-              <a 
-                href="mailto:info@warriorcapital.co.uk" 
-                className="text-warrior-gray hover:text-white transition-colors text-xs"
-              >
-                info@warriorcapital.co.uk
-              </a>
-            </div>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h3 className="font-semibold mb-6 text-sm normal-case">Find us on</h3>
-            <div className="flex flex-col space-y-2">
-              <a 
-                href="https://www.instagram.com/warrior_capital" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-warrior-gray hover:text-white transition-colors text-xs"
-              >
-                Instagram
-              </a>
-              <a 
-                href="https://uk.linkedin.com/company/warrior-capital1" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-warrior-gray hover:text-white transition-colors text-xs"
-              >
-                LinkedIn
-              </a>
-            </div>
-          </div>
+          <FooterAddress />
+          <FooterContact />
+          <FooterSocial />
         </div>
       </div>
     </footer>
