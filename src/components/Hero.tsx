@@ -5,7 +5,7 @@ import { useLogoTransition } from "@/hooks/useLogoTransition";
 
 export const Hero = () => {
   const [videoOpacity, setVideoOpacity] = useState(1);
-  const { white: whiteOpacity, black: blackOpacity } = useLogoTransition();
+  const { white: whiteOpacity, black: blackOpacity, position } = useLogoTransition();
   
   const whiteLogo = "/lovable-uploads/7f78581e-ed7d-4d54-8424-08e21e04f672.png";
   const blackLogo = "/lovable-uploads/8e43d334-5a0c-4341-a13c-ec79cd2ae8e8.png";
@@ -18,6 +18,7 @@ export const Hero = () => {
         blackLogo={blackLogo}
         whiteOpacity={whiteOpacity}
         blackOpacity={blackOpacity}
+        position={position}
       />
     </section>
   );
