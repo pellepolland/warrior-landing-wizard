@@ -3,7 +3,7 @@ export const AboutBlock = () => {
     <section className="min-h-screen flex items-center about-section">
       <div className="w-full grid md:grid-cols-2 gap-12">
         {/* Video content - moved above text for mobile */}
-        <div className="relative h-[400px] md:h-full animate-fade-up order-1 md:order-2">
+        <div className="relative h-[400px] md:h-full animate-fade-up order-first md:order-last">
           <video
             className="w-full h-full object-cover"
             autoPlay
@@ -17,7 +17,7 @@ export const AboutBlock = () => {
         </div>
 
         {/* Text content */}
-        <div className="flex flex-col justify-center animate-fade-up px-8 sm:px-12 lg:px-16 xl:px-20 order-2 md:order-1">
+        <div className="flex flex-col justify-center animate-fade-up px-8 sm:px-12 lg:px-16 xl:px-20 order-last md:order-first">
           <h2 className="text-xl md:text-2xl font-bold mb-8 text-warrior-dark">
             ABOUT US
           </h2>
