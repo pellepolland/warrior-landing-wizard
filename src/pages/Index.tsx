@@ -23,7 +23,9 @@ const Index = () => {
         <PurposeBlock />
         <ApproachBlock />
         <ValueBlock />
-        <InvestmentBlock />
+        <div className="pb-12 md:pb-24">
+          <InvestmentBlock />
+        </div>
       </div>
       <Footer />
     </main>
