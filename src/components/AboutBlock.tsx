@@ -21,7 +21,7 @@ export const AboutBlock = () => {
               properties in some of London's most iconic and sought-after locations into thriving spaces 
               with charm and personality – that truly serve the local area.
             </p>
-            <p>
+            <p className="italic">
               At Warrior, we see our investments as more than just buildings. Like a personal spiritual 
               journey, they evolve in the hands of wisdom and purpose, embodied by genius loci - the 
               unique spirit of place.
