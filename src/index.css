@@ -25,3 +25,12 @@
     opacity: 1;
   }
 }
+
+.video-container {
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+.video-container.visible {
+  opacity: 1;
+}

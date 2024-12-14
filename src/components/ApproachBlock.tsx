@@ -1,4 +1,31 @@
+import { useEffect, useRef } from 'react';
+
 export const ApproachBlock = () => {
+  const videoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center">
       <div className="container mx-auto grid md:grid-cols-2 gap-12 px-4">
@@ -21,9 +48,9 @@ export const ApproachBlock = () => {
         </div>
 
         {/* Video content */}
-        <div className="relative h-[400px] md:h-full animate-fade-up bg-white">
+        <div ref={videoRef} className="relative h-[400px] md:h-full animate-fade-up bg-white video-container">
           <video
-            className="w-full h-full object-cover opacity-0 animate-[fadeIn_1.5s_ease-out_forwards]"
+            className="w-full h-full object-cover"
             autoPlay
             loop
             muted

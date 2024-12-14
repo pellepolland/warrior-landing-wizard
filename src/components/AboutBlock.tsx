@@ -1,11 +1,38 @@
+import { useEffect, useRef } from 'react';
+
 export const AboutBlock = () => {
+  const videoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center about-section">
       <div className="w-full grid md:grid-cols-2 gap-12">
         {/* Video content - moved above text for mobile */}
-        <div className="relative h-[400px] md:h-full animate-fade-up order-first md:order-last bg-white">
+        <div ref={videoRef} className="relative h-[400px] md:h-full animate-fade-up order-first md:order-last bg-white video-container">
           <video
-            className="w-full h-full object-cover opacity-0 animate-[fadeIn_1.5s_ease-out_forwards]"
+            className="w-full h-full object-cover"
             autoPlay
             loop
             muted
