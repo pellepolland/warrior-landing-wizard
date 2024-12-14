@@ -1,39 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-
 export const EthosBlock = () => {
-  const videoRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
-    };
-  }, []);
-
   return (
     <section className="min-h-screen flex items-center">
       <div className="container mx-auto grid md:grid-cols-2 gap-12 px-4">
-        <div 
-          ref={videoRef} 
-          className={`relative h-[400px] md:h-full animate-fade-up bg-white content-video-wrapper ${isVisible ? 'visible' : ''}`}
-        >
+        {/* Video content */}
+        <div className="relative h-[400px] md:h-full animate-fade-up">
           <video
             className="w-full h-full object-cover"
             autoPlay
@@ -46,6 +16,7 @@ export const EthosBlock = () => {
           </video>
         </div>
 
+        {/* Text content */}
         <div className="flex flex-col justify-center animate-fade-up px-8 sm:px-12 lg:px-16 xl:px-20">
           <h2 className="text-xl md:text-2xl font-bold mb-8 text-warrior-dark">
             ETHOS

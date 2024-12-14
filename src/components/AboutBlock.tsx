@@ -1,39 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-
 export const AboutBlock = () => {
-  const videoRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
-    };
-  }, []);
-
   return (
     <section className="min-h-screen flex items-center about-section">
       <div className="w-full grid md:grid-cols-2 gap-12">
-        <div 
-          ref={videoRef} 
-          className={`relative h-[400px] md:h-full animate-fade-up order-first md:order-last bg-white content-video-wrapper ${isVisible ? 'visible' : ''}`}
-        >
+        {/* Video content - moved above text for mobile */}
+        <div className="relative h-[400px] md:h-full animate-fade-up order-first md:order-last">
           <video
             className="w-full h-full object-cover"
             autoPlay
@@ -46,6 +16,7 @@ export const AboutBlock = () => {
           </video>
         </div>
 
+        {/* Text content */}
         <div className="flex flex-col justify-center animate-fade-up px-8 sm:px-12 lg:px-16 xl:px-20 order-last md:order-first">
           <h2 className="text-xl md:text-2xl font-bold mb-8 text-warrior-dark">
             ABOUT US
