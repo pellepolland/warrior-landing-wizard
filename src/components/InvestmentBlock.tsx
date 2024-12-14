@@ -1,14 +1,15 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const InvestmentBlock = () => {
   const videoRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            setIsVisible(true);
           }
         });
       },
@@ -29,8 +30,10 @@ export const InvestmentBlock = () => {
   return (
     <section className="min-h-screen flex items-center">
       <div className="container mx-auto grid md:grid-cols-2 gap-12 px-4">
-        {/* Video content */}
-        <div ref={videoRef} className="relative h-[400px] md:h-full animate-fade-up bg-white video-container">
+        <div 
+          ref={videoRef} 
+          className={`relative h-[400px] md:h-full animate-fade-up bg-white content-video-wrapper ${isVisible ? 'visible' : ''}`}
+        >
           <video
             className="w-full h-full object-cover"
             autoPlay
@@ -43,7 +46,6 @@ export const InvestmentBlock = () => {
           </video>
         </div>
 
-        {/* Text content */}
         <div className="flex flex-col justify-center animate-fade-up px-8 sm:px-12 lg:px-16 xl:px-20">
           <h2 className="text-xl md:text-2xl font-bold mb-8 text-warrior-dark">
             INVESTMENT

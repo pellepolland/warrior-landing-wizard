@@ -26,11 +26,12 @@
   }
 }
 
-.video-container {
+.content-video-wrapper {
   opacity: 0;
+  background: white;
   transition: opacity 1.5s ease-out;
 }
 
-.video-container.visible {
+.content-video-wrapper.visible {
   opacity: 1;
 }
