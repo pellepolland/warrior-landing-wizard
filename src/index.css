@@ -16,3 +16,12 @@
     font-family: 'Recital', system-ui, sans-serif;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

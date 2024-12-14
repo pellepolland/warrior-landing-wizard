@@ -3,9 +3,9 @@ export const AboutBlock = () => {
     <section className="min-h-screen flex items-center about-section">
       <div className="w-full grid md:grid-cols-2 gap-12">
         {/* Video content - moved above text for mobile */}
-        <div className="relative h-[400px] md:h-full animate-fade-up order-first md:order-last">
+        <div className="relative h-[400px] md:h-full animate-fade-up order-first md:order-last bg-white">
           <video
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-0 animate-[fadeIn_1.5s_ease-out_forwards]"
             autoPlay
             loop
             muted

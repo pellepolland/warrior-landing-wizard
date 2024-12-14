@@ -3,9 +3,9 @@ export const InvestmentBlock = () => {
     <section className="min-h-screen flex items-center">
       <div className="container mx-auto grid md:grid-cols-2 gap-12 px-4">
         {/* Video content */}
-        <div className="relative h-[400px] md:h-full animate-fade-up">
+        <div className="relative h-[400px] md:h-full animate-fade-up bg-white">
           <video
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-0 animate-[fadeIn_1.5s_ease-out_forwards]"
             autoPlay
             loop
             muted
