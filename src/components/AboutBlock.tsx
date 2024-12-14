@@ -2,8 +2,22 @@ export const AboutBlock = () => {
   return (
     <section className="min-h-screen flex items-center about-section">
       <div className="w-full grid md:grid-cols-2 gap-12">
+        {/* Video content - moved above text for mobile */}
+        <div className="relative h-[400px] md:h-full animate-fade-up order-1 md:order-2">
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="https://cdn.prod.website-files.com/670fe89eb5229a7ce7da32e2%2F6717d0991841085902747eec_Vignette%20Stucco-transcode.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
         {/* Text content */}
-        <div className="flex flex-col justify-center animate-fade-up px-8 sm:px-12 lg:px-16 xl:px-20">
+        <div className="flex flex-col justify-center animate-fade-up px-8 sm:px-12 lg:px-16 xl:px-20 order-2 md:order-1">
           <h2 className="text-xl md:text-2xl font-bold mb-8 text-warrior-dark">
             ABOUT US
           </h2>
@@ -27,20 +41,6 @@ export const AboutBlock = () => {
               unique spirit of place.
             </p>
           </div>
-        </div>
-        
-        {/* Video content */}
-        <div className="relative h-[400px] md:h-full animate-fade-up">
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src="https://cdn.prod.website-files.com/670fe89eb5229a7ce7da32e2%2F6717d0991841085902747eec_Vignette%20Stucco-transcode.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
         </div>
       </div>
     </section>
